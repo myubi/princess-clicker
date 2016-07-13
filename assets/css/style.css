@@ -34,6 +34,34 @@ body {
   flex-grow: 2;
 }
 
+.button {
+  height: 32px;
+  padding: 5px;
+  background: #c35d5d;
+  border: 3px double white;
+  cursor: pointer;
+  width: 120px;
+  margin: 5px;
+  display: inline-block;
+}
+
+.button:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.button img {
+  position:absolute;
+}
+
+.button span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 32px;
+}
+
 @media screen and (min-width:600px) {
    .container {
        flex-wrap:nowrap;
