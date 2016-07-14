@@ -8,7 +8,7 @@
 
     <div class="left">
 
-      <div>
+    <div id="attributes"  class="hidden">
       <h5>Attributes</h5>
 
 
@@ -62,63 +62,86 @@
       <meter id="stress" value="10" min="0" max="1000"></meter>
       </div>
       </div>
-      <hr>
 
 
 
     </div>
 
     <div class="middle">
-      <p id="name">Name</p>
-      <p>Age</p>
-      <p>Birthday</p>
-      <img src="assets/img/princess.png" />
-      <p><span id="gold">0</span> Gold</p>
+
+      <div id="princess" class="hidden">
+        <p id="name">Name</p>
+        <p>Age: <span id="age">10<span></p>
+        <p>Birthday: <span id="birthday"></span></p>
+        <img src="assets/img/princess.png" />
+        <p><span class="gold">0</span> Gold</p>
+      </div>
+
+      <div id="beggining">
+
+          <img src="assets/img/princess.png" onclick="jobClick(10)" />
+
+        <p><span class="gold">0</span> Gold</p>
+      </div>
+
+      <div id="questions" class="hidden">
+        <form name="initialSetup"  onsubmit="startGame()" method="POST">
+          Name: <input type="text" name="name" required /><br>
+          Birthday: <input type="date" name="birthday" min="1200-01-01" max="1200-12-31" required /><br>
+          Blood type:<br>
+          <input type="radio" name="bloodType" value="a" checked required> A<br>
+          <input type="radio" name="bloodType" value="b" required> B<br>
+          <input type="radio" name="bloodType" value="ab" required> AB<br>
+          <input type="radio" name="bloodType" value="o" required> O<br>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
 
     <div class="right">
+      <div id="jobsandlessons" class="hidden">
+        <div class="jobs">
 
-      <div class="jobs">
+          <div id="housework" class="button" onclick="jobClick(0)">
+          <img src="assets/img/jobs/housework.png" />
+          <span>Housework</span>
+          </div>
 
-        <div id="housework" class="button" onclick="jobClick(0)">
-        <img src="assets/img/jobs/housework.png" />
-        <span>Housework</span>
+          <div id="babysitter" class="button" onclick="jobClick(4)">
+          <img src="assets/img/jobs/babysitter.png" />
+          <span>Babysitter</span>
+          </div>
+
+          <div id="church" class="button" onclick="jobClick(8)">
+          <img src="assets/img/jobs/church.png" />
+          <span>Church</span>
+          </div>
+
+          <div id="farm" class="button" onclick="jobClick(10)">
+          <img src="assets/img/jobs/farm.png" />
+          <span>Farm</span>
+          </div>
+
+          <div id="inn" class="button" onclick="jobClick(1)">
+          <img src="assets/img/jobs/inn.png" />
+          <span>Inn</span>
+          </div>
+
+          <div id="restaurant" class="button" onclick="jobClick(8)">
+          <img src="assets/img/jobs/restaurant.png" />
+          <span>Restaurant</span>
+          </div>
+
         </div>
 
-        <div id="babysitter" class="button" onclick="jobClick(4)">
-        <img src="assets/img/jobs/babysitter.png" />
-        <span>Babysitter</span>
+        <div class="lessons">
+
+          <div id="restaurant" class="button" onclick="buyLesson()">
+          <img src="assets/img/lessons/dance.png" />
+          <span>Dance</span>
+          </div>
+
         </div>
-
-        <div id="church" class="button" onclick="jobClick(8)">
-        <img src="assets/img/jobs/church.png" />
-        <span>Church</span>
-        </div>
-
-        <div id="farm" class="button" onclick="jobClick(10)">
-        <img src="assets/img/jobs/farm.png" />
-        <span>Farm</span>
-        </div>
-
-        <div id="inn" class="button" onclick="jobClick(1)">
-        <img src="assets/img/jobs/inn.png" />
-        <span>Inn</span>
-        </div>
-
-        <div id="restaurant" class="button" onclick="jobClick(8)">
-        <img src="assets/img/jobs/restaurant.png" />
-        <span>Restaurant</span>
-        </div>
-
-      </div>
-
-      <div class="lessons">
-
-        <div id="restaurant" class="button" onclick="buyLesson()">
-        <img src="assets/img/lessons/dance.png" />
-        <span>Dance</span>
-        </div>
-
       </div>
 
     </div>
