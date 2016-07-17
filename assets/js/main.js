@@ -2,7 +2,25 @@ var gold = 0;
 var age = 10;
 var name;
 var birthday;
+var birthmonth;
+var birthyear = 1200;
 var bloodType;
+
+var starSigns =  {
+  aries = [80,109],
+  taurus = [110,140],
+  gemini = [141,172],
+  cancer = [173,203],
+  leo = [204,234],
+  virgo = [235,265],
+  libra = [266,295],
+  scorpio = [295,325],
+  sagittarius = [325,355],
+  capricorn = [356,19],
+  aquarius = [20,49],
+  pisces = [50,79]
+
+};
 
 function jobClick(num){
   gold += num;
@@ -20,6 +38,7 @@ function startGame(){
 
    name = document.forms["initialSetup"]["name"].value;
    birthday = document.forms["initialSetup"]["birthday"].value;
+   birthmonth = document.forms["initialSetup"]["birthmonth"].value;
    bloodType = document.forms["initialSetup"]["bloodType"].value;
 
    document.getElementById("name").innerHTML = name;

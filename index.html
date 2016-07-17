@@ -87,7 +87,7 @@
       <div id="questions" class="hidden">
         <form name="initialSetup"  onsubmit="startGame()" method="POST">
           Name: <input type="text" name="name" required /><br>
-          Birthday: <input type="date" name="birthday" min="1200-01-01" max="1200-12-31" required /><br>
+          Birthday: DD  <input type="number" name="birthday" min="1" max="30" required /> MM <input type="number" name="birthmonth" min="1" max="12" required /><br>
           Blood type:<br>
           <input type="radio" name="bloodType" value="a" checked required> A<br>
           <input type="radio" name="bloodType" value="b" required> B<br>
