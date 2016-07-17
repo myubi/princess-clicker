@@ -1,26 +1,40 @@
-var gold = 0;
+var gold = 480;
 var age = 10;
 var name;
 var birthday;
 var birthmonth;
 var birthyear = 1200;
 var bloodType;
+var starSign;
 
-var starSigns =  {
-  aries = [80,109],
-  taurus = [110,140],
-  gemini = [141,172],
-  cancer = [173,203],
-  leo = [204,234],
-  virgo = [235,265],
-  libra = [266,295],
-  scorpio = [295,325],
-  sagittarius = [325,355],
-  capricorn = [356,19],
-  aquarius = [20,49],
-  pisces = [50,79]
+//attributes
 
-};
+var constitution = document.getElementById('constitution');
+var strength = document.getElementById('strength');
+var intelligence = document.getElementById('intelligence');
+var refinement = document.getElementById('refinement');
+var charisma = document.getElementById('charisma');
+var morality = document.getElementById('morality');
+var faith = document.getElementById('faith');
+var sin = document.getElementById('sin');
+var sensitivity = document.getElementById('sensitivity');
+var stress = document.getElementById('stress');
+
+var starSigns =  [
+  ["Aries", 321, 419],
+  ["Taurus", 420,520],
+  ["Gemini", 521,621],
+  ["Cancer", 622,722],
+  ["Leo", 723,822],
+  ["Virgo", 823,922],
+  ["Libra", 923,1022],
+  ["Scorpio", 1023,1121],
+  ["Sagittarius", 1122,1221],
+  ["Capricorn", 1222,119],
+  ["Aquarius", 120,218],
+  ["Pisces", 219, 320]
+
+];
 
 function jobClick(num){
   gold += num;
@@ -37,12 +51,26 @@ function jobClick(num){
 function startGame(){
 
    name = document.forms["initialSetup"]["name"].value;
-   birthday = document.forms["initialSetup"]["birthday"].value;
-   birthmonth = document.forms["initialSetup"]["birthmonth"].value;
+   var birthdayValue;
+
+   if(document.forms["initialSetup"]["birthday"].value < 10){
+     birthdayValue = 0 + "" + document.forms["initialSetup"]["birthday"].value;
+   }
+   else {
+     birthdayValue = document.forms["initialSetup"]["birthday"].value;
+   }
+
+   birthday = document.forms["initialSetup"]["birthmonth"].value + "" + birthdayValue;
    bloodType = document.forms["initialSetup"]["bloodType"].value;
 
    document.getElementById("name").innerHTML = name;
    document.getElementById("birthday").innerHTML = birthday;
+
+   defineStarSign(birthday);
+
+   document.getElementById("starSign").innerHTML = starSign;
+
+   initialAttibutesStats(starSign);
 
   document.getElementById("questions").className += "hidden";
 
@@ -52,3 +80,163 @@ function startGame(){
 
   event.preventDefault();
 };
+
+function defineStarSign(day){
+  for (var i = 0; i < starSigns.length; i++){
+    if (day > starSigns[i][1] && day < starSigns[i][2]){
+      starSign = starSigns[i][0];
+    }
+  }
+  if (starSign === undefined){
+    starSign = "Capricorn";
+  }
+};
+
+function initialAttibutesStats(val){
+
+  switch (val) {
+    case "Aries":
+        constitution.value = 45;
+        strength.value = 45;
+        intelligence.value = 13;
+        refinement.value = 10;
+        charisma.value = 7;
+        morality.value = 14;
+        faith.value = 21;
+        sin.value = 0;
+        sensitivity.value = 6;
+        stress.value = 0;
+        break;
+    case "Taurus":
+        constitution.value = 33;
+        strength.value = 28;
+        intelligence.value = 23;
+        refinement.value = 25;
+        charisma.value = 24;
+        morality.value = 32;
+        faith.value = 20;
+        sin.value = 0;
+        sensitivity.value = 19;
+        stress.value = 0;
+        break;
+    case "Gemini":
+        constitution.value = 19;
+        strength.value = 18;
+        intelligence.value = 36;
+        refinement.value = 14;
+        charisma.value = 14;
+        morality.value = 7;
+        faith.value = 10;
+        sin.value = 0;
+        sensitivity.value = 35;
+        stress.value = 0;
+        break;
+    case "Cancer":
+        constitution.value = 18;
+        strength.value = 18;
+        intelligence.value = 24;
+        refinement.value = 29;
+        charisma.value = 33;
+        morality.value = 25;
+        faith.value = 30;
+        sin.value = 0;
+        sensitivity.value = 33;
+        stress.value = 0;
+        break;
+    case "Leo":
+        constitution.value = 50;
+        strength.value = 50;
+        intelligence.value = 7;
+        refinement.value = 42;
+        charisma.value = 18;
+        morality.value = 23;
+        faith.value = 10;
+        sin.value = 0;
+        sensitivity.value = 9;
+        stress.value = 0;
+        break;
+    case "Virgo":
+        constitution.value = 14;
+        strength.value = 5;
+        intelligence.value = 28;
+        refinement.value = 45;
+        charisma.value = 30;
+        morality.value = 32;
+        faith.value = 35;
+        sin.value = 0;
+        sensitivity.value = 31;
+        stress.value = 0;
+        break;
+    case "Libra":
+        constitution.value = 25;
+        strength.value = 22;
+        intelligence.value = 30;
+        refinement.value = 24;
+        charisma.value = 20;
+        morality.value = 20;
+        faith.value = 21;
+        sin.value = 0;
+        sensitivity.value = 26;
+        stress.value = 0;
+        break;
+    case "Scorpio":
+        constitution.value = 28;
+        strength.value = 20;
+        intelligence.value = 22;
+        refinement.value = 9;
+        charisma.value = 42;
+        morality.value = 10;
+        faith.value = 27;
+        sin.value = 0;
+        sensitivity.value = 39;
+        stress.value = 0;
+        break;
+    case "Sagittarius":
+        constitution.value = 38;
+        strength.value = 35;
+        intelligence.value = 24;
+        refinement.value = 23;
+        charisma.value = 11;
+        morality.value = 10;
+        faith.value = 12;
+        sin.value = 0;
+        sensitivity.value = 20;
+        stress.value = 0;
+        break;
+    case "Capricorn":
+        constitution.value = 25;
+        strength.value = 20;
+        intelligence.value = 17;
+        refinement.value = 15;
+        charisma.value = 10;
+        morality.value = 38;
+        faith.value = 20;
+        sin.value = 0;
+        sensitivity.value = 13;
+        stress.value = 0;
+        break;
+    case "Aquarius":
+        constitution.value = 17;
+        strength.value = 18;
+        intelligence.value = 42;
+        refinement.value = 12;
+        charisma.value = 10;
+        morality.value = 13;
+        faith.value = 8;
+        sin.value = 0;
+        sensitivity.value = 28;
+        stress.value = 0;
+        break;
+    case "Pisces":
+        constitution.value = 16;
+        strength.value = 15;
+        intelligence.value = 15;
+        refinement.value = 32;
+        charisma.value = 31;
+        morality.value = 24;
+        faith.value = 30;
+        sin.value = 0;
+        sensitivity.value = 45;
+        stress.value = 0;
+  }
+}
