@@ -66,6 +66,47 @@ body {
   display: none;
 }
 
+.attrValue {
+  padding-left: 5px;
+  padding-right: 5px;
+  background: black;
+  color: white;
+  display: inline-block;
+width: 20px;
+text-align: center;
+}
+
+#attributes {
+  background: #c35d5d;
+    padding: 10px;
+        border: 3px double white;
+}
+
+meter {
+  width: 150px;
+  height: 25px;
+  -webkit-appearance: none; /* Reset appearance */
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+meter::-webkit-meter-bar {
+  background: none; /* Required to get rid of the default background property */
+  background-color: whiteSmoke;
+  box-shadow: 0 5px 5px -5px #333 inset;
+}
+
+meter::-webkit-meter-optimum-value {
+  box-shadow: 0 5px 5px -5px #999 inset;
+  background: linear-gradient(to bottom, #ff1616 0%,#ff7a7a 24%,#ffffff 50%,#ff7a7a 79%,#ff1616 100%);
+  background-size: 100% 100%;
+}
+
+.attrName {
+  width: 80px;
+display: inline-block;
+}
+
 @media screen and (min-width:600px) {
    .container {
        flex-wrap:nowrap;

@@ -106,6 +106,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 6;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Taurus":
         constitution.value = 33;
@@ -118,6 +128,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 19;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Gemini":
         constitution.value = 19;
@@ -130,6 +150,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 35;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Cancer":
         constitution.value = 18;
@@ -142,6 +172,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 33;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Leo":
         constitution.value = 50;
@@ -154,6 +194,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 9;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Virgo":
         constitution.value = 14;
@@ -166,6 +216,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 31;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Libra":
         constitution.value = 25;
@@ -178,6 +238,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 26;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Scorpio":
         constitution.value = 28;
@@ -190,6 +260,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 39;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Sagittarius":
         constitution.value = 38;
@@ -202,6 +282,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 20;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Capricorn":
         constitution.value = 25;
@@ -214,6 +304,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 13;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Aquarius":
         constitution.value = 17;
@@ -226,6 +326,16 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 28;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
         break;
     case "Pisces":
         constitution.value = 16;
@@ -238,5 +348,15 @@ function initialAttibutesStats(val){
         sin.value = 0;
         sensitivity.value = 45;
         stress.value = 0;
+        document.getElementById('constitutionVal').innerHTML = constitution.value;
+        document.getElementById('strengthVal').innerHTML = strength.value;
+        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+        document.getElementById('refinementVal').innerHTML = refinement.value;
+        document.getElementById('charismaVal').innerHTML = charisma.value;
+        document.getElementById('moralityVal').innerHTML = morality.value;
+        document.getElementById('faithVal').innerHTML = faith.value;
+        document.getElementById('sinVal').innerHTML = sin.value;
+        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+        document.getElementById('stressVal').innerHTML = stress.value;
   }
 }
