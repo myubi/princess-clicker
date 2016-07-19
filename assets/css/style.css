@@ -72,7 +72,7 @@ body {
   background: black;
   color: white;
   display: inline-block;
-width: 20px;
+width: 30px;
 text-align: center;
 }
 
@@ -103,7 +103,7 @@ meter::-webkit-meter-optimum-value {
 }
 
 .attrName {
-  width: 80px;
+  width: 130px;
 display: inline-block;
 }
 

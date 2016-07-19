@@ -20,6 +20,8 @@ var sin = document.getElementById('sin');
 var sensitivity = document.getElementById('sensitivity');
 var stress = document.getElementById('stress');
 
+  var findGold = document.getElementsByClassName("gold");
+
 var starSigns =  [
   ["Aries", 321, 419],
   ["Taurus", 420,520],
@@ -36,9 +38,53 @@ var starSigns =  [
 
 ];
 
+
+var lessons = {
+  "dance": {
+    "price": 50,
+    "level": "novice"
+  },
+  "fencing": {
+    "price": 40,
+    "level": "novice"
+  },
+  "fighting": {
+    "price": 30,
+    "level": "novice"
+  },
+  "magic": {
+    "price": 60,
+    "level": "novice"
+  },
+  "painting": {
+    "price": 40,
+    "level": "novice"
+  },
+  "poetry": {
+    "price": 40,
+    "level": "novice"
+  },
+  "protocol": {
+    "price": 40,
+    "level": "novice"
+  },
+  "science": {
+    "price": 30,
+    "level": "novice"
+  },
+  "strategy": {
+    "price": 50,
+    "level": "novice"
+  },
+  "theology": {
+    "price": 40,
+    "level": "novice"
+  }
+};
+
 function jobClick(num){
   gold += num;
-  var findGold = document.getElementsByClassName("gold");
+
   for (var i = 0; i < findGold.length; i++) {
     findGold[i].innerHTML = gold;
   }
@@ -46,6 +92,63 @@ function jobClick(num){
     document.getElementById("beggining").className += "hidden";
     document.getElementById("questions").className = document.getElementById("questions").className.replace( /(?:^|\s)hidden(?!\S)/g , '' );
   }
+};
+
+function lessonClick(topic){
+
+  console.log(lessons[topic].price);
+
+  if (gold > lessons[topic].price){
+    gold -= lessons[topic].price;
+    for (var i = 0; i < findGold.length; i++) {
+      findGold[i].innerHTML = gold;
+    }
+
+    switch (topic) {
+      case "dance":
+          constitution.value += 1;
+          charisma.value += 0.5;
+          document.getElementById('constitutionVal').innerHTML = constitution.value;
+          document.getElementById('charismaVal').innerHTML = charisma.value;
+          break;
+      case "fencing":
+          break;
+      case "fighting":
+          break;
+      case "magic":
+          break;
+      case "painting":
+          sensitivity.value += 0.5;
+          document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+          break;
+      case "poetry":
+          intelligence.value += 0.5;
+          refinement.value += 0.5;
+          sensitivity.value += 1;
+          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+          document.getElementById('refinementVal').innerHTML = refinement.value;
+          document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+          break;
+      case "protocol":
+          refinement.value += 1;
+          document.getElementById('refinementVal').innerHTML = refinement.value;
+          break;
+      case "science":
+          intelligence.value += 2.5;
+          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+          break;
+      case "strategy":
+          intelligence.value += 1.5;
+          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+          break;
+      case "theology":
+          intelligence.value += 1;
+          faith.value += 1.5;
+          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+          document.getElementById('faithVal').innerHTML = faith.value;
+    }
+  }
+
 };
 
 function startGame(){
