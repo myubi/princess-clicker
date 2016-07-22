@@ -149,34 +149,53 @@
 
     <div class="middle">
 
-      <div id="princess" class="hidden">
-        <p id="name">Name</p>
-        <p>Age: <span id="age">10<span></p>
-        <p>Birthday: <span id="birthday"></span></p>
-        <p id="starSign">StarSign</p>
-        <img src="assets/img/princess.png" />
-        <p><span class="gold">0</span> Gold</p>
-      </div>
-
       <div id="beggining">
+        <div class="talk-box">
+          <p>You find yourself stuck into a figth with the devil. Attacking him is dropping coins in the floor.</p>
+        </div>
 
-          <img src="assets/img/princess.png" onclick="jobClick(10)" />
+        <img class="hand-cursor" src="assets/img/war-beggining.png" onclick="jobClick(10)" />
 
         <p><span class="gold">0</span> Gold</p>
       </div>
 
       <div id="questions" class="hidden">
+
+        <div class="mugshot"><img src="assets/img/goddess.png" /></div>
+
+        <div class="talk-box talk-mugshot">
+          <p>You are granted with a child.</p>
+        </div>
+
+        <div id="arrival">
+        <img src="assets/img/arrival.png" />
+        </div>
+
+        <div class="talk-box">
         <form name="initialSetup"  onsubmit="startGame(event)" method="POST">
-          Name: <input type="text" name="name" required /><br>
-          Birthday: DD  <input type="number" name="birthday" min="1" max="30" required /> MM <input type="number" name="birthmonth" min="1" max="12" required /><br>
+          Name: <br><input type="text" name="name" required /><br>
+          Birthday:<br> DD  <input type="number" name="birthday" min="1" max="30" required /> MM <input type="number" name="birthmonth" min="1" max="12" required /><br>
           Blood type:<br>
-          <input type="radio" name="bloodType" value="a" checked required> A<br>
-          <input type="radio" name="bloodType" value="b" required> B<br>
-          <input type="radio" name="bloodType" value="ab" required> AB<br>
+          <input type="radio" name="bloodType" value="a" checked required> A
+          <input type="radio" name="bloodType" value="b" required> B
+          <input type="radio" name="bloodType" value="ab" required> AB
           <input type="radio" name="bloodType" value="o" required> O<br>
           <input type="submit" value="Submit" />
         </form>
       </div>
+      </div>
+
+      <div id="princess" class="hidden">
+        <p id="name">Name</p>
+        <p>Age: <span id="age">10<span></p>
+        <p>Birthday: <span id="birthday"></span></p>
+        <p id="starSign">StarSign</p>
+        <div class="room">
+        <img src="assets/img/princess.png" />
+      </div>
+        <p><span class="gold">0</span> Gold</p>
+      </div>
+
     </div>
 
     <div class="right">

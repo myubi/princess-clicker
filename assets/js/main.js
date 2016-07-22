@@ -6,6 +6,7 @@ var birthmonth;
 var birthyear = 1200;
 var bloodType;
 var starSign;
+var gameStart = false;
 
 //attributes
 
@@ -102,9 +103,10 @@ function jobClick(num){
   for (var i = 0; i < findGold.length; i++) {
     findGold[i].innerHTML = gold;
   }
-  if (gold === 500){
+  if (gold === 500 && gameStart === false){
     document.getElementById("beggining").className += "hidden";
     document.getElementById("questions").className = document.getElementById("questions").className.replace( /(?:^|\s)hidden(?!\S)/g , '' );
+    gameStart = true;
   }
 };
 
