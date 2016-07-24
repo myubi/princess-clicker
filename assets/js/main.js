@@ -3,7 +3,9 @@ var age = 10;
 var name;
 var birthday;
 var birthmonth;
-var birthyear = 1200;
+var year = 1200;
+document.getElementById("curYear").innerHTML = year;
+var month;
 var bloodType;
 var starSign;
 var gameStart = false;
@@ -35,7 +37,10 @@ var cooking = document.getElementById('cooking');
 var cleaning = document.getElementById('cleaning');
 var temperament =  document.getElementById('temperament');
 
-  var findGold = document.getElementsByClassName("gold");
+var findGold = document.getElementsByClassName("gold");
+
+var sick = false;
+var deliquent = false;
 
 var starSigns =  [
   ["Aries", 321, 419],
@@ -314,6 +319,9 @@ function jobClick(job){
         document.getElementById('sin').innerHTML = sin.value;
   }
 
+
+  stressCheck(stress.value, constitution.value, morality.value, faith.value);
+
 };
 
 function lessonClick(topic){
@@ -396,6 +404,7 @@ function lessonClick(topic){
           document.getElementById('faithVal').innerHTML = faith.value;
           document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
     }
+    stressCheck(stress.value, constitution.value, morality.value, faith.value);
   }
   else {
     console.log("No money!");
@@ -1069,5 +1078,31 @@ function initialAttibutesStats(val){
         document.getElementById('cookingVal').innerHTML = cooking.value;
         document.getElementById('cleaningVal').innerHTML = cleaning.value;
         document.getElementById('temperamentVal').innerHTML = temperament.value;
+  }
+}
+
+function stressCheck(stress, constitution, morality, faith){
+  var deliquencyDeterminant;
+
+  if (morality > faith){
+    deliquencyDeterminant = morality;
+  } else {
+    deliquencyDeterminant = faith;
+  }
+
+  if (stress > constitution && sick === false){
+    document.getElementById("sick").innerHTML = "Sick";
+    sick = true;
+  } else if (stress < constitution && sick === true){
+    document.getElementById("sick").innerHTML = "Not sick";
+    sick = false;
+  }
+
+  if (stress > deliquencyDeterminant && deliquent === false){
+    document.getElementById("deliquent").innerHTML = "Deliquent";
+    deliquent = true;
+  } else if (stress < deliquencyDeterminant && deliquent === true){
+    document.getElementById("deliquent").innerHTML = "Not Deliquent";
+    deliquent = false;
   }
 }

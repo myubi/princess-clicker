@@ -91,7 +91,7 @@ text-align: center;
 
 meter {
   width: 150px;
-  height: 25px;
+  height: 15px;
   -webkit-appearance: none; /* Reset appearance */
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -157,6 +157,18 @@ display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
   height: 400px;
+}
+
+.calendar tr>td{
+  width: 32px;
+  height: 32px;
+  border: 1px solid #FFFFFF;
+}
+
+.calendar {
+  background-color: #000000;
+  outline: 2px solid #7b7b7b;
+  border: 3px solid #fff;
 }
 
 @media screen and (min-width:600px) {
