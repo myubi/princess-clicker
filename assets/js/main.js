@@ -1,4 +1,4 @@
-var gold = 490;
+var gold = 390;
 var age = 10;
 var name;
 var birthday;
@@ -9,6 +9,7 @@ var month;
 var bloodType;
 var starSign;
 var gameStart = false;
+var sicknessPercentage;
 
 //attributes
 
@@ -436,7 +437,7 @@ function startGame(event){
    bloodType = document.forms["initialSetup"]["bloodType"].value;
 
    document.getElementById("name").innerHTML = name;
-   document.getElementById("birthday").innerHTML = birthday;
+   document.getElementById("birthday").innerHTML =  birthdayValue + " / " + document.forms["initialSetup"]["birthmonth"].value;
 
    defineStarSign(birthday);
 
@@ -1090,19 +1091,42 @@ function stressCheck(stress, constitution, morality, faith){
     deliquencyDeterminant = faith;
   }
 
+  if (sick === true && stress - constitution >= 90){
+    document.getElementById('room').style.backgroundImage = "url('assets/img/princess/bedridden-princess.png')";
+    document.getElementById("princessImg").src = "";
+  }
+
   if (stress > constitution && sick === false){
-    document.getElementById("sick").innerHTML = "Sick";
+    document.getElementById("sick").src = "assets/img/sick-icon.png";
+    document.getElementById("princessImg").src = "assets/img/princess/sick-princess.png";
     sick = true;
   } else if (stress < constitution && sick === true){
-    document.getElementById("sick").innerHTML = "Not sick";
+    document.getElementById("sick").src = "assets/img/empty-icon.png";
+    document.getElementById("princessImg").src = "assets/img/princess/normal-princess.png";
     sick = false;
   }
 
   if (stress > deliquencyDeterminant && deliquent === false){
-    document.getElementById("deliquent").innerHTML = "Deliquent";
+    document.getElementById("deliquent").src = "assets/img/deliquent-icon.png";
+    document.getElementById('princessImg').src = "assets/img/princess/deliquent-princess.png";
     deliquent = true;
   } else if (stress < deliquencyDeterminant && deliquent === true){
-    document.getElementById("deliquent").innerHTML = "Not Deliquent";
+        document.getElementById("deliquent").src = "assets/img/empty-icon.png";
+    document.getElementById('princessImg').src = "assets/img/princess/normal-princess.png";
     deliquent = false;
+  }
+}
+
+function reduceStress(activity){
+  switch (activity) {
+    case "freeTime":
+      stress.value -= 5;
+      document.getElementById('stressVal').innerHTML = stress.value;
+      break;
+    case "vacation":
+      gold -= 100;
+      updateGold();
+      stress.value -= 50;
+      document.getElementById('stressVal').innerHTML = stress.value;
   }
 }

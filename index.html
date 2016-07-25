@@ -186,13 +186,13 @@
       </div>
 
       <div id="princess" class="hidden">
-        <p id="name">Name</p>
-        <p>Age: <span id="age">10<span></p>
-        <p>Birthday: <span id="birthday"></span></p>
-        <p id="starSign">StarSign</p>
-        <p><span id="sick">Not sick</span><span id="deliquent">Not deliquent</span></p>
-        <div class="room">
-        <img src="assets/img/princess.png" />
+
+        <div id="room" class="room">
+        <img id="princessImg" src="assets/img/princess/normal-princess.png" />
+      </div>
+      <div class="princessInfo">
+        <span id="name">Olive</span> | <span id="age">10<span> yo | <span id="starSign">StarSign</span> | <span id="birthday"></span> | <img id="sick" src="assets/img/empty-icon.png" /> <img id="deliquent" src="assets/img/empty-icon.png" />
+        </p>
       </div>
         <p><span class="gold">0</span> Gold</p>
       </div>
@@ -201,111 +201,6 @@
 
     <div class="right">
       <div id="jobsandlessons" class="hidden">
-        <div class="jobs">
-
-          <div id="housework" class="button" onclick="jobClick('housework')">
-          <img src="assets/img/jobs/housework.png" />
-          <span>Housework</span>
-          </div>
-
-          <div id="babysitter" class="button" onclick="jobClick('babysitter')">
-          <img src="assets/img/jobs/babysitter.png" />
-          <span>Babysitter</span>
-          </div>
-
-          <div id="church" class="button" onclick="jobClick('church')">
-          <img src="assets/img/jobs/church.png" />
-          <span>Church</span>
-          </div>
-
-          <div id="farm" class="button" onclick="jobClick('farm')">
-          <img src="assets/img/jobs/farm.png" />
-          <span>Farm</span>
-          </div>
-
-          <div id="inn" class="button" onclick="jobClick('inn')">
-          <img src="assets/img/jobs/inn.png" />
-          <span>Inn</span>
-          </div>
-
-          <div id="restaurant" class="button" onclick="jobClick('restaurant')">
-          <img src="assets/img/jobs/restaurant.png" />
-          <span>Restaurant</span>
-          </div>
-
-          <hr>
-
-        </div>
-
-        <div class="lessons">
-
-          <div id="dance" class="button" onclick="lessonClick('dance')">
-          <img src="assets/img/lessons/dance.png" />
-          <span>Dance</span>
-          </div>
-
-          <div id="fencing" class="button" onclick="lessonClick('fencing')">
-          <img src="assets/img/lessons/fencing.png" />
-          <span>Fencing</span>
-          </div>
-
-          <div id="fighting" class="button" onclick="lessonClick('fighting')">
-          <img src="assets/img/lessons/fighting.png" />
-          <span>Fighting</span>
-          </div>
-
-          <div id="magic" class="button" onclick="lessonClick('magic')">
-          <img src="assets/img/lessons/magic.png" />
-          <span>Magic</span>
-          </div>
-
-          <div id="painting" class="button" onclick="lessonClick('painting')">
-          <img src="assets/img/lessons/painting.png" />
-          <span>Painting</span>
-          </div>
-
-          <div id="poetry" class="button" onclick="lessonClick('poetry')">
-          <img src="assets/img/lessons/poetry.png" />
-          <span>Poetry</span>
-          </div>
-
-          <div id="protocol" class="button" onclick="lessonClick('protocol')">
-          <img src="assets/img/lessons/protocol.png" />
-          <span>Protocol</span>
-          </div>
-
-          <div id="science" class="button" onclick="lessonClick('science')">
-          <img src="assets/img/lessons/science.png" />
-          <span>Science</span>
-          </div>
-
-          <div id="strategy" class="button" onclick="lessonClick('strategy')">
-          <img src="assets/img/lessons/strategy.png" />
-          <span>Strategy</span>
-          </div>
-
-          <div id="theology" class="button" onclick="lessonClick('theology')">
-          <img src="assets/img/lessons/theology.png" />
-          <span>Theology</span>
-          </div>
-
-          <hr>
-
-        </div>
-
-        <div class="freeActivities">
-          
-          <div id="freeTime" class="button" onclick="reduceStress('freeTime')">
-          <img src="assets/img/lessons/strategy.png" />
-          <span>Free Time</span>
-          </div>
-
-          <div id="vacation" class="button" onclick="reduceStress('vacation')">
-          <img src="assets/img/lessons/theology.png" />
-          <span>Vacation</span>
-          </div>
-
-        </div>
 
         <div class="calendardiv">
 
@@ -370,8 +265,116 @@
               </tr>
             </tbody>
           </table>
+ <p></p>
+        </div>
+
+
+        <div class="jobs">
+
+          <div id="housework" class="button" onclick="jobClick('housework')">
+          <img src="assets/img/jobs/housework.png" />
+          <span>Housework</span>
+          </div>
+
+          <div id="babysitter" class="button" onclick="jobClick('babysitter')">
+          <img src="assets/img/jobs/babysitter.png" />
+          <span>Babysitter</span>
+          </div>
+
+          <div id="church" class="button" onclick="jobClick('church')">
+          <img src="assets/img/jobs/church.png" />
+          <span>Church</span>
+          </div>
+
+          <div id="farm" class="button" onclick="jobClick('farm')">
+          <img src="assets/img/jobs/farm.png" />
+          <span>Farm</span>
+          </div>
+
+          <div id="inn" class="button" onclick="jobClick('inn')">
+          <img src="assets/img/jobs/inn.png" />
+          <span>Inn</span>
+          </div>
+
+          <div id="restaurant" class="button" onclick="jobClick('restaurant')">
+          <img src="assets/img/jobs/restaurant.png" />
+          <span>Restaurant</span>
+          </div>
+
+           <p></p>
 
         </div>
+
+        <div class="lessons">
+
+          <div id="dance" class="button" onclick="lessonClick('dance')">
+          <img src="assets/img/lessons/dance.png" />
+          <span>Dance</span>
+          </div>
+
+          <div id="fencing" class="button" onclick="lessonClick('fencing')">
+          <img src="assets/img/lessons/fencing.png" />
+          <span>Fencing</span>
+          </div>
+
+          <div id="fighting" class="button" onclick="lessonClick('fighting')">
+          <img src="assets/img/lessons/fighting.png" />
+          <span>Fighting</span>
+          </div>
+
+          <div id="magic" class="button" onclick="lessonClick('magic')">
+          <img src="assets/img/lessons/magic.png" />
+          <span>Magic</span>
+          </div>
+
+          <div id="painting" class="button" onclick="lessonClick('painting')">
+          <img src="assets/img/lessons/painting.png" />
+          <span>Painting</span>
+          </div>
+
+          <div id="poetry" class="button" onclick="lessonClick('poetry')">
+          <img src="assets/img/lessons/poetry.png" />
+          <span>Poetry</span>
+          </div>
+
+          <div id="protocol" class="button" onclick="lessonClick('protocol')">
+          <img src="assets/img/lessons/protocol.png" />
+          <span>Protocol</span>
+          </div>
+
+          <div id="science" class="button" onclick="lessonClick('science')">
+          <img src="assets/img/lessons/science.png" />
+          <span>Science</span>
+          </div>
+
+          <div id="strategy" class="button" onclick="lessonClick('strategy')">
+          <img src="assets/img/lessons/strategy.png" />
+          <span>Strategy</span>
+          </div>
+
+          <div id="theology" class="button" onclick="lessonClick('theology')">
+          <img src="assets/img/lessons/theology.png" />
+          <span>Theology</span>
+          </div>
+
+           <p></p>
+
+        </div>
+
+        <div class="freeActivities">
+
+          <div id="freeTime" class="button" onclick="reduceStress('freeTime')">
+          <img src="assets/img/rest/freeTime.png" />
+          <span>Free Time</span>
+          </div>
+
+          <div id="vacation" class="button" onclick="reduceStress('vacation')">
+          <img src="assets/img/rest/vacation.png" />
+          <span>Vacation</span>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
