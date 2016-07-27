@@ -191,107 +191,60 @@ function jobClick(job){
         cleaning.value += 0.5;
         temperament.value += 0.5;
         sensitivity.value -= 2;
-
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
         break;
     case "babysitting":
         sensitivity.value += 1;
         charisma.value -= 1;
-
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
         break;
     case "inn":
         cleaning.value += 0.5;
         combatSkill.value -= 1;
-
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
         break;
     case "farm":
         constitution.value += 1;
         strength.value += 1;
         refinement.value -= 1;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
         break;
     case "church":
         faith.value += 2;
         morality.value += 1;
         sin.value -= 2;
-
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
         break;
     case "restaurant":
         cooking.value += 0.5;
         combatSkill.value -= 0.5;
-
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('combatSkillVal').innerHTML = combat.value;
         break;
     case "lumberjack":
         strength.value += 2;
         refinement.value -= 2;
-
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
         break;
     case "salon":
         sensitivity.value += 1;
         strength.value -= 1;
-
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
         break;
     case "masonry":
         constitution.value += 2;
         charisma.value -= 2;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
         break;
     case "hunter":
         constitution.value += 1;
         combatSkill.value += 0.5;
         refinement.value -= 1;
         sin.value += 0.5;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
         break;
     case "graveyard":
         sensitivity.value += 1;
         magicalDefense.value += 0.5;
         charisma.value -= 1;
-
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
         break;
     case "tutor":
         morality.value += 1;
         charisma.value -= 1;
-
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
         break;
     case "bar":
         cooking.value += 0.5;
         conversation.value += 0.5;
         intelligence.value -= 2;
-
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('conversationVal').innerHTML = conversation.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
         break;
     case "sleezyBar":
         charisma.value += 2;
@@ -299,12 +252,6 @@ function jobClick(job){
         morality.value -= 3;
         temperament.value -= 0.5;
         sin.value += 2;
-
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
-        document.getElementById('sin').innerHTML = sin.value;
         break;
     case "cabaret":
         charisma.value =+ 3;
@@ -312,14 +259,9 @@ function jobClick(job){
         intelligence.value -= 1;
         temperament.value -= 0.5;
         sin.value += 1;
-
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
-        document.getElementById('sin').innerHTML = sin.value;
   }
 
+  updateAttributes();
 
   stressCheck(stress.value, constitution.value, morality.value, faith.value);
 
@@ -337,74 +279,47 @@ function lessonClick(topic){
           constitution.value += 1;
           charisma.value += 0.5;
           art.value += 0.5;
-
-          document.getElementById('constitutionVal').innerHTML = constitution.value;
-          document.getElementById('charismaVal').innerHTML = charisma.value;
-          document.getElementById('artVal').innerHTML = art.value;
           break;
       case "fencing":
           combatSkill.value += 0.5;
           combatAttack.value += 1;
-
-          document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-          document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
           break;
       case "fighting":
           combatSkill.value =+ 0.5;
-
-          document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
           break;
       case "magic":
           magicalSkill.value += 1;
           magicalAttack.value += 0.5;
-
-          document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-          document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
           break;
       case "painting":
           art.value += 1;
           sensitivity.value += 0.5;
-
-          document.getElementById('artVal').innerHTML = art.value;
-          document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
           break;
       case "poetry":
           intelligence.value += 0.5;
           refinement.value += 0.5;
           sensitivity.value += 1;
           art.value += 0.5;
-          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-          document.getElementById('refinementVal').innerHTML = refinement.value;
-          document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-          document.getElementById('artVal').innerHTML = art.value;
           break;
       case "protocol":
           decorum.value += 1;
           refinement.value += 1;
-
-          document.getElementById('decorumVal').innerHTML = decorum.value;
-          document.getElementById('refinementVal').innerHTML = refinement.value;
           break;
       case "science":
           intelligence.value += 2.5;
-          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
           break;
       case "strategy":
           intelligence.value += 1.5;
           combatSkill.value += 0.5;
           sensitivity.value -= 0.5;
-          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-          document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-          document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
           break;
       case "theology":
           intelligence.value += 1;
           faith.value += 1.5;
           magicalDefense.value += 0.5;
-          document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-          document.getElementById('faithVal').innerHTML = faith.value;
-          document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
     }
+
+    updateAttributes();
     stressCheck(stress.value, constitution.value, morality.value, faith.value);
   }
   else {
@@ -493,31 +408,6 @@ function initialAttibutesStats(val){
         cooking.value = 18;
         cleaning.value = 18;
         temperament.value = 4;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Taurus":
         constitution.value = 33;
@@ -544,31 +434,6 @@ function initialAttibutesStats(val){
         cooking.value = 19;
         cleaning.value = 16;
         temperament.value = 23;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Gemini":
         constitution.value = 19;
@@ -595,31 +460,6 @@ function initialAttibutesStats(val){
         cooking.value = 8;
         cleaning.value = 10;
         temperament.value = 11;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Cancer":
         constitution.value = 18;
@@ -646,31 +486,6 @@ function initialAttibutesStats(val){
         cooking.value = 17;
         cleaning.value = 20;
         temperament.value = 17;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Leo":
         constitution.value = 50;
@@ -697,31 +512,6 @@ function initialAttibutesStats(val){
         cooking.value = 7;
         cleaning.value = 9;
         temperament.value = 2;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Virgo":
         constitution.value = 14;
@@ -748,31 +538,6 @@ function initialAttibutesStats(val){
         cooking.value = 29;
         cleaning.value = 30;
         temperament.value = 30;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Libra":
         constitution.value = 25;
@@ -799,31 +564,6 @@ function initialAttibutesStats(val){
         cooking.value = 16;
         cleaning.value = 15;
         temperament.value = 15;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Scorpio":
         constitution.value = 28;
@@ -850,31 +590,6 @@ function initialAttibutesStats(val){
         cooking.value = 12;
         cleaning.value = 11;
         temperament.value = 8;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Sagittarius":
         constitution.value = 38;
@@ -901,31 +616,6 @@ function initialAttibutesStats(val){
         cooking.value = 21;
         cleaning.value = 13;
         temperament.value = 10;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Capricorn":
         constitution.value = 25;
@@ -952,31 +642,6 @@ function initialAttibutesStats(val){
         cooking.value = 19;
         cleaning.value = 19;
         temperament.value = 28;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Aquarius":
         constitution.value = 17;
@@ -1003,31 +668,6 @@ function initialAttibutesStats(val){
         cooking.value = 15;
         cleaning.value = 23;
         temperament.value = 6;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
         break;
     case "Pisces":
         constitution.value = 16;
@@ -1054,32 +694,50 @@ function initialAttibutesStats(val){
         cooking.value = 16;
         cleaning.value = 14;
         temperament.value = 18;
-
-        document.getElementById('constitutionVal').innerHTML = constitution.value;
-        document.getElementById('strengthVal').innerHTML = strength.value;
-        document.getElementById('intelligenceVal').innerHTML = intelligence.value;
-        document.getElementById('refinementVal').innerHTML = refinement.value;
-        document.getElementById('charismaVal').innerHTML = charisma.value;
-        document.getElementById('moralityVal').innerHTML = morality.value;
-        document.getElementById('faithVal').innerHTML = faith.value;
-        document.getElementById('sinVal').innerHTML = sin.value;
-        document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
-        document.getElementById('stressVal').innerHTML = stress.value;
-
-        document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
-        document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
-        document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
-        document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
-        document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
-        document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
-
-        document.getElementById('decorumVal').innerHTML = decorum.value;
-        document.getElementById('artVal').innerHTML = art.value;
-        document.getElementById('conversationVal').innerHTML = constitution.value;
-        document.getElementById('cookingVal').innerHTML = cooking.value;
-        document.getElementById('cleaningVal').innerHTML = cleaning.value;
-        document.getElementById('temperamentVal').innerHTML = temperament.value;
   }
+
+  updateAttributes();
+}
+
+function updateAttributes(){
+  document.getElementById('constitutionVal').innerHTML = constitution.value;
+  document.getElementById('strengthVal').innerHTML = strength.value;
+  document.getElementById('intelligenceVal').innerHTML = intelligence.value;
+  document.getElementById('refinementVal').innerHTML = refinement.value;
+  document.getElementById('charismaVal').innerHTML = charisma.value;
+  document.getElementById('moralityVal').innerHTML = morality.value;
+  document.getElementById('faithVal').innerHTML = faith.value;
+  document.getElementById('sinVal').innerHTML = sin.value;
+  document.getElementById('sensitivityVal').innerHTML = sensitivity.value;
+  document.getElementById('stressVal').innerHTML = stress.value;
+
+  document.getElementById('combatSkillVal').innerHTML = combatSkill.value;
+  document.getElementById('combatAttackVal').innerHTML = combatAttack.value;
+  document.getElementById('combatDefenseVal').innerHTML = combatDefense.value;
+  document.getElementById('magicalSkillVal').innerHTML = magicalSkill.value;
+  document.getElementById('magicalAttackVal').innerHTML = magicalAttack.value;
+  document.getElementById('magicalDefenseVal').innerHTML = magicalDefense.value;
+
+  document.getElementById('decorumVal').innerHTML = decorum.value;
+  document.getElementById('artVal').innerHTML = art.value;
+  document.getElementById('conversationVal').innerHTML = constitution.value;
+  document.getElementById('cookingVal').innerHTML = cooking.value;
+  document.getElementById('cleaningVal').innerHTML = cleaning.value;
+  document.getElementById('temperamentVal').innerHTML = temperament.value;
+}
+
+function isSick(){
+  if (stress.value > constitution.value){
+    return true;
+  }
+    return false;
+}
+
+function isBedridden(){
+  if(isSick() && stress.value - constitution.value >= 90){
+    return true;
+  }
+    return false;
 }
 
 function stressCheck(stress, constitution, morality, faith){
@@ -1091,19 +749,22 @@ function stressCheck(stress, constitution, morality, faith){
     deliquencyDeterminant = faith;
   }
 
-  if (sick === true && stress - constitution >= 90){
-    document.getElementById('room').style.backgroundImage = "url('assets/img/princess/bedridden-princess.png')";
-    document.getElementById("princessImg").src = "";
-  }
 
-  if (stress > constitution && sick === false){
+
+  if (isSick()){
     document.getElementById("sick").src = "assets/img/sick-icon.png";
     document.getElementById("princessImg").src = "assets/img/princess/sick-princess.png";
-    sick = true;
-  } else if (stress < constitution && sick === true){
+  } else {
     document.getElementById("sick").src = "assets/img/empty-icon.png";
     document.getElementById("princessImg").src = "assets/img/princess/normal-princess.png";
-    sick = false;
+  }
+
+  if (isBedridden()){
+    document.getElementById('room').style.backgroundImage = "url('assets/img/princess/bedridden-princess.png')";
+    document.getElementById("princessImg").src = "";
+  } else {
+    document.getElementById('room').style.backgroundImage = "url('assets/img/room.png')";
+    document.getElementById("princessImg").src = "assets/img/princess/normal-princess.png";
   }
 
   if (stress > deliquencyDeterminant && deliquent === false){
@@ -1129,4 +790,6 @@ function reduceStress(activity){
       stress.value -= 50;
       document.getElementById('stressVal').innerHTML = stress.value;
   }
+
+  stressCheck(stress.value, constitution.value, morality.value, faith.value);
 }
