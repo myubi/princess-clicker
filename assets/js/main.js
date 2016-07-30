@@ -191,6 +191,11 @@ function jobClick(job){
         cleaning.value += 0.5;
         temperament.value += 0.5;
         sensitivity.value -= 2;
+
+        document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/jobs/scenario/housework.png')";
+        document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/jobs/sprites/housework/good-animation-01.png')";
+        document.getElementById("jobSprite").className += "jobAnimation";
+        document.getElementById("jobScenarioContainer").className += "talk-box";
         break;
     case "babysitting":
         sensitivity.value += 1;
