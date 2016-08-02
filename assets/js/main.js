@@ -2,14 +2,20 @@ var gold = 390;
 var age = 10;
 var name;
 var birthday;
-var birthmonth;
+var birthMonth;
+var birthdayDay;
 var year = 1200;
-document.getElementById("curYear").innerHTML = year;
+//document.getElementById("curYear").innerHTML = year;
 var month;
 var bloodType;
 var starSign;
 var gameStart = false;
 var sicknessPercentage;
+var calDaysLabels = ['sun','mon','tue','wed','thu','fri','sat'];
+var calMonthLabels = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var calDaysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var currentDay;
+var currentMonth;
 
 //attributes
 
@@ -192,6 +198,8 @@ function jobClick(job){
         temperament.value += 0.5;
         sensitivity.value -= 2;
 
+        currentDay += 1;
+
         document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/jobs/scenario/housework.png')";
         document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/jobs/sprites/housework/good-animation-01.png')";
         document.getElementById("jobSprite").className += "jobAnimation";
@@ -344,26 +352,33 @@ function startGame(event){
     event.preventDefault();
 
    name = document.forms["initialSetup"]["name"].value;
+   birthmonth = document.forms["initialSetup"]["birthmonth"].value;
+   birthdayDay = document.forms["initialSetup"]["birthday"].value;
+
+   currentDay = Number(birthdayDay);
+   currentMonth = Number(birthmonth);
    var birthdayValue;
 
-   if(document.forms["initialSetup"]["birthday"].value < 10){
-     birthdayValue = 0 + "" + document.forms["initialSetup"]["birthday"].value;
+   if(birthdayDay < 10){
+     birthdayValue = 0 + "" + birthdayDay;
    }
    else {
-     birthdayValue = document.forms["initialSetup"]["birthday"].value;
+     birthdayValue = birthdayDay;
    }
 
-   birthday = document.forms["initialSetup"]["birthmonth"].value + "" + birthdayValue;
+   birthday = birthmonth + "" + birthdayValue;
    bloodType = document.forms["initialSetup"]["bloodType"].value;
 
    document.getElementById("name").innerHTML = name;
-   document.getElementById("birthday").innerHTML =  birthdayValue + " / " + document.forms["initialSetup"]["birthmonth"].value;
+   document.getElementById("birthday").innerHTML =  birthdayValue + " / " + birthmonth;
 
    defineStarSign(birthday);
 
    document.getElementById("starSign").innerHTML = starSign;
 
    initialAttibutesStats(starSign);
+
+   createCalendar();
 
   document.getElementById("questions").className += "hidden";
 
@@ -384,6 +399,63 @@ function defineStarSign(day){
     starSign = "Capricorn";
   }
 };
+
+function createCalendar(){
+  var getCalendar = document.getElementById('calendar');
+
+  var currentDate = new Date(year, currentMonth, currentDay);
+
+  this.month = (isNaN(month) || month == null) ? currentDate.getMonth() : month;
+  this.year  = (isNaN(year) || year == null) ? currentDate.getFullYear() : year;
+  this.html = '';
+
+  var firstDay = new Date(this.year, this.month, 1);
+  var startingDay = firstDay.getDay();
+  var monthLenght = calDaysInMonths[this.month];
+  var monthName = calMonthLabels[this.month];
+
+  var html = '<table class="calendar">';
+  html += '<thead><tr><th colspan="7">';
+  html += this.year + "&nbsp;" + monthName;
+  html += '</th></tr>';
+  html += '<tr>';
+
+  for (var i = 0; i <= 6; i++){
+    if (i === 0){
+      html += '<th><span style="color:red;">' + calDaysLabels[i] + '</span></th>';
+    }
+    else {
+      html += '<th>' + calDaysLabels[i] + '</th>';
+    }
+  }
+
+  html += '</tr></thead>';
+  html += '<tbody><tr>';
+
+  var day = 1;
+  for (var i = 0; i < 9; i++){
+    for (var j = 0; j <= 6; j++){
+      html += '<td>';
+      if (day <= monthLenght && (i > 0 || j >= startingDay )){
+        if (day === currentDay){
+          html += '<span style="color:red;">' + day + '</span>';
+        } else {
+          html += day;
+        }
+        day++;
+      }
+      html += '</td>';
+    }
+    if (day > monthLenght){
+      break;
+    } else {
+      html += '</tr><tr>';
+    }
+  }
+  html += '</tr></tbody></table>';
+
+  getCalendar.innerHTML = html;
+}
 
 function initialAttibutesStats(val){
 
