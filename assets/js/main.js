@@ -198,16 +198,14 @@ function jobClick(job){
         temperament.value += 0.5;
         sensitivity.value -= 2;
 
-        currentDay += 1;
-
-        document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/jobs/scenario/housework.png')";
-        document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/jobs/sprites/housework/good-animation-01.png')";
-        document.getElementById("jobSprite").className += "jobAnimation";
-        document.getElementById("jobScenarioContainer").className += "talk-box";
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "housework");
         break;
     case "babysitting":
         sensitivity.value += 1;
         charisma.value -= 1;
+
+        addIconToCalendar("jobs", "babysitting");
         break;
     case "inn":
         cleaning.value += 0.5;
@@ -274,7 +272,11 @@ function jobClick(job){
         sin.value += 1;
   }
 
+  currentDay += 1;
+  checkEndOfMonth();
+  highlightCurrentDay();
   updateAttributes();
+
 
   stressCheck(stress.value, constitution.value, morality.value, faith.value);
 
@@ -379,6 +381,7 @@ function startGame(event){
    initialAttibutesStats(starSign);
 
    createCalendar();
+   highlightCurrentDay();
 
   document.getElementById("questions").className += "hidden";
 
@@ -405,18 +408,14 @@ function createCalendar(){
 
   var currentDate = new Date(year, currentMonth, currentDay);
 
-  this.month = (isNaN(month) || month == null) ? currentDate.getMonth() : month;
-  this.year  = (isNaN(year) || year == null) ? currentDate.getFullYear() : year;
-  this.html = '';
-
-  var firstDay = new Date(this.year, this.month, 1);
+  var firstDay = new Date(year, currentMonth, 1);
   var startingDay = firstDay.getDay();
-  var monthLenght = calDaysInMonths[this.month];
-  var monthName = calMonthLabels[this.month];
+  var monthLenght = calDaysInMonths[currentMonth];
+  var monthName = calMonthLabels[currentMonth];
 
   var html = '<table class="calendar">';
   html += '<thead><tr><th colspan="7">';
-  html += this.year + "&nbsp;" + monthName;
+  html += year + "&nbsp;" + monthName;
   html += '</th></tr>';
   html += '<tr>';
 
@@ -435,16 +434,15 @@ function createCalendar(){
   var day = 1;
   for (var i = 0; i < 9; i++){
     for (var j = 0; j <= 6; j++){
-      html += '<td>';
+
       if (day <= monthLenght && (i > 0 || j >= startingDay )){
-        if (day === currentDay){
-          html += '<span style="color:red;">' + day + '</span>';
-        } else {
-          html += day;
-        }
+        html += '<td id="day' + day + '">';
+        html += day;
         day++;
+        html += '</td>';
+      } else {
+        html += '<td></td>';
       }
-      html += '</td>';
     }
     if (day > monthLenght){
       break;
@@ -455,6 +453,54 @@ function createCalendar(){
   html += '</tr></tbody></table>';
 
   getCalendar.innerHTML = html;
+}
+
+function checkEndOfMonth(){
+    var currentDate = new Date(year, currentMonth, currentDay);
+    var monthLenght = calDaysInMonths[currentMonth];
+
+    if (currentDay > monthLenght){
+      currentDay = 1;
+      if (currentMonth === 11){
+        currentMonth = 0;
+        year += 1;
+      } else {
+        currentMonth += 1;
+      }
+      createCalendar();
+    } else {
+    }
+
+}
+
+function highlightCurrentDay(){
+  var currentDayId = document.getElementById('day' + currentDay);
+  var previousDayId = document.getElementById('day' + (currentDay - 1));
+  currentDayId.style.color = "#FF0000";
+  if ((currentDay - 1) !== 0){
+      previousDayId.removeAttribute("style");
+  }
+}
+
+function addIconToCalendar(type, icon){
+  var currentDayId = document.getElementById('day' + currentDay);
+  currentDayId.innerHTML = "<img src='assets/img/" + type + "/" + icon + ".png' />";
+}
+
+function scheduleAnimation(type, value){
+  document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/jobs/scenario/" + value + ".png')";
+  document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/jobs/sprites/" + value + "/good-animation-01.png')";
+  document.getElementById("jobSprite").className += "jobAnimation";
+  document.getElementById("jobScenarioContainer").className += "talk-box";
+
+  setTimeout(clearAnimation, 3000);
+}
+
+function clearAnimation(){
+  document.getElementById('jobScenario').removeAttribute("style");
+  document.getElementById('jobSprite').removeAttribute("style");
+  document.getElementById("jobSprite").className = document.getElementById("princess").className.replace( /(?:^|\s)jobAnimation(?!\S)/g , '' );
+  document.getElementById("jobScenarioContainer").className = document.getElementById("princess").className.replace( /(?:^|\s)talk-box(?!\S)/g , '' );
 }
 
 function initialAttibutesStats(val){
