@@ -171,6 +171,21 @@ var lessons = {
   }
 };
 
+
+
+function saveGame(){
+  var save = {
+    name: name,
+    age: age,
+    currentMonth: currentMonth,
+    currentDay: currentDay,
+    year: year,
+    gold: gold
+  }
+
+  localStorage.setItem("save",JSON.stringify(save));
+}
+
 function warClick(num){
   gold += num;
 
