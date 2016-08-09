@@ -49,6 +49,7 @@ body {
   display: inline-block;
   background-color: #a85050;
   background-image: url('../img/background-pattern.png');
+  text-align: left;
 }
 
 .button:before {
@@ -65,7 +66,9 @@ body {
 .button span {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 32px;
+  margin-left: 40px;
+  font-size: 14px;
+  line-height: 0;
 }
 
 .hidden {
@@ -97,7 +100,6 @@ text-align: center;
 meter {
   width: 150px;
   height: 15px;
-  -webkit-appearance: none; /* Reset appearance */
   border: 1px solid #ccc;
   border-radius: 3px;
 }

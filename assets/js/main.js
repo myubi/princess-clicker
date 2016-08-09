@@ -1,15 +1,14 @@
-var gold = 390;
+var gold = 0;
 var age = 10;
 var name;
 var birthday;
 var birthMonth;
 var birthdayDay;
-var year = 1200;
-//document.getElementById("curYear").innerHTML = year;
+var year = 1210;
 var month;
 var bloodType;
 var starSign;
-var gameStart = false;
+
 var sicknessPercentage;
 var calDaysLabels = ['sun','mon','tue','wed','thu','fri','sat'];
 var calMonthLabels = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -171,274 +170,29 @@ var lessons = {
   }
 };
 
-
-
-function saveGame(){
-  var save = {
-    name: name,
-    age: age,
-    currentMonth: currentMonth,
-    currentDay: currentDay,
-    year: year,
-    gold: gold
-  }
-
-  localStorage.setItem("save",JSON.stringify(save));
-}
+//Initial Screen Story
 
 function warClick(num){
   gold += num;
 
   updateGold();
 
-  if (gold === 500 && gameStart === false){
+  if (gold === 500){
     document.getElementById("beggining").className += "hidden";
     document.getElementById("questions").className = document.getElementById("questions").className.replace( /(?:^|\s)hidden(?!\S)/g , '' );
-    gameStart = true;
   }
 }
 
-function jobClick(job){
-  gold += jobs[job].payment;
-
-  updateGold();
-
-  stress.value += jobs[job].stress;
-  document.getElementById('stressVal').innerHTML = stress.value;
-
-  switch (job) {
-    case "housework":
-        cooking.value += 0.5;
-        cleaning.value += 0.5;
-        temperament.value += 0.5;
-        sensitivity.value -= 2;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "housework");
-        break;
-    case "babysitting":
-        sensitivity.value += 1;
-        charisma.value -= 1;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "babysitter");
-        break;
-    case "inn":
-        cleaning.value += 0.5;
-        combatSkill.value -= 1;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "inn");
-        break;
-    case "farm":
-        constitution.value += 1;
-        strength.value += 1;
-        refinement.value -= 1;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "farm");
-        break;
-    case "church":
-        faith.value += 2;
-        morality.value += 1;
-        sin.value -= 2;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "church");
-        break;
-    case "restaurant":
-        cooking.value += 0.5;
-        combatSkill.value -= 0.5;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "restaurant");
-        break;
-    case "lumberjack":
-        strength.value += 2;
-        refinement.value -= 2;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "lumberjack");
-        break;
-    case "salon":
-        sensitivity.value += 1;
-        strength.value -= 1;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "salon");
-        break;
-    case "masonry":
-        constitution.value += 2;
-        charisma.value -= 2;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "masonry");
-        break;
-    case "hunter":
-        constitution.value += 1;
-        combatSkill.value += 0.5;
-        refinement.value -= 1;
-        sin.value += 0.5;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "hunter");
-        break;
-    case "graveyard":
-        sensitivity.value += 1;
-        magicalDefense.value += 0.5;
-        charisma.value -= 1;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "graveyard");
-        break;
-    case "tutor":
-        morality.value += 1;
-        charisma.value -= 1;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "tutor");
-        break;
-    case "bar":
-        cooking.value += 0.5;
-        conversation.value += 0.5;
-        intelligence.value -= 2;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "bar");
-        break;
-    case "sleazyBar":
-        charisma.value += 2;
-        faith.value -= 3;
-        morality.value -= 3;
-        temperament.value -= 0.5;
-        sin.value += 2;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "sleazy-bar");
-        break;
-    case "cabaret":
-        charisma.value =+ 3;
-        refinement.value -= 2;
-        intelligence.value -= 1;
-        temperament.value -= 0.5;
-        sin.value += 1;
-
-        scheduleAnimation("jobs", "housework");
-        addIconToCalendar("jobs", "cabaret");
-  }
-
-  currentDay += 1;
-  checkBirthday();
-  checkEndOfMonth();
-  highlightCurrentDay();
-  updateAttributes();
-
-
-  stressCheck(stress.value, constitution.value, morality.value, faith.value);
-
-};
-
-function lessonClick(topic){
-
-  if (gold > lessons[topic].price){
-    gold -= lessons[topic].price;
-
-    updateGold();
-
-    switch (topic) {
-      case "dance":
-          constitution.value += 1;
-          charisma.value += 0.5;
-          art.value += 0.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "dance");
-          break;
-      case "fencing":
-          combatSkill.value += 0.5;
-          combatAttack.value += 1;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "fencing");
-          break;
-      case "fighting":
-          combatSkill.value =+ 0.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "fighting");
-          break;
-      case "magic":
-          magicalSkill.value += 1;
-          magicalAttack.value += 0.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "magic");
-          break;
-      case "painting":
-          art.value += 1;
-          sensitivity.value += 0.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "painting");
-          break;
-      case "poetry":
-          intelligence.value += 0.5;
-          refinement.value += 0.5;
-          sensitivity.value += 1;
-          art.value += 0.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "poetry");
-          break;
-
-      case "protocol":
-          decorum.value += 1;
-          refinement.value += 1;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "protocol");
-          break;
-      case "science":
-          intelligence.value += 2.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "science");
-          break;
-      case "strategy":
-          intelligence.value += 1.5;
-          combatSkill.value += 0.5;
-          sensitivity.value -= 0.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "strategy");
-          break;
-      case "theology":
-          intelligence.value += 1;
-          faith.value += 1.5;
-          magicalDefense.value += 0.5;
-
-          scheduleAnimation("jobs", "housework");
-          addIconToCalendar("lessons", "theology");
-    }
-
-    currentDay += 1;
-    checkBirthday();
-    checkEndOfMonth();
-    highlightCurrentDay();
-    updateAttributes();
-    stressCheck(stress.value, constitution.value, morality.value, faith.value);
-  }
-  else {
-    console.log("No money!");
-  }
-
-};
+//Update Gold on all divs.
 
 function updateGold() {
   for (var i = 0; i < findGold.length; i++) {
     findGold[i].innerHTML = gold;
   }
 }
+
+
+//Stat Game after form completed
 
 function startGame(event){
 
@@ -483,6 +237,8 @@ function startGame(event){
 
 };
 
+// Define Star Sign to make initial attributes
+
 function defineStarSign(day){
   for (var i = 0; i < starSigns.length; i++){
     if (day > starSigns[i][1] && day < starSigns[i][2]){
@@ -494,149 +250,7 @@ function defineStarSign(day){
   }
 };
 
-function createCalendar(){
-  var getCalendar = document.getElementById('calendar');
-
-  var currentDate = new Date(year, currentMonth, currentDay);
-
-  var firstDay = new Date(year, currentMonth, 1);
-  var startingDay = firstDay.getDay();
-  var monthLenght = calDaysInMonths[currentMonth];
-  var monthName = calMonthLabels[currentMonth];
-
-  var html = '<table class="calendar">';
-  html += '<thead><tr><th colspan="7">';
-  html += year + "&nbsp;" + monthName;
-  html += '</th></tr>';
-  html += '<tr>';
-
-  for (var i = 0; i <= 6; i++){
-    if (i === 0){
-      html += '<th><span style="color:red;">' + calDaysLabels[i] + '</span></th>';
-    }
-    else {
-      html += '<th>' + calDaysLabels[i] + '</th>';
-    }
-  }
-
-  html += '</tr></thead>';
-  html += '<tbody><tr>';
-
-  var day = 1;
-  for (var i = 0; i < 9; i++){
-    for (var j = 0; j <= 6; j++){
-
-      if (day <= monthLenght && (i > 0 || j >= startingDay )){
-        html += '<td id="day' + day + '">';
-        html += day;
-        day++;
-        html += '</td>';
-      } else {
-        html += '<td></td>';
-      }
-    }
-    if (day > monthLenght){
-      break;
-    } else {
-      html += '</tr><tr>';
-    }
-  }
-  html += '</tr></tbody></table>';
-
-  getCalendar.innerHTML = html;
-}
-
-function checkEndOfMonth(){
-    var currentDate = new Date(year, currentMonth, currentDay);
-    var monthLenght = calDaysInMonths[currentMonth];
-
-    if (currentDay > monthLenght){
-      currentDay = 1;
-      if (currentMonth === 11){
-        currentMonth = 0;
-        year += 1;
-      } else {
-        currentMonth += 1;
-      }
-      createCalendar();
-    } else {
-    }
-
-}
-
-function checkBirthday(){
-  if (currentDay === birthdayDay && currentMonth === birthMonth - 1){
-    age += 1;
-    document.getElementById("age").innerHTML = age;
-
-    switch (age){
-      case 11:
-        addJob("lumberjack");
-        addJob("salon");
-        break;
-      case 12:
-        addJob("masonry");
-        addJob("hunter");
-        break;
-      case 13:
-        addJob("graveyard");
-        break;
-      case 14:
-        addJob("bar");
-        addJob("tutor");
-        break;
-      case 15:
-        addJob("sleazyBar");
-        break;
-      case 16:
-        addJob("cabaret");
-    }
-  }
-}
-
-function addJob(job){
-    var jobsDiv = document.getElementById('jobs');
-
-    var html = '<div id="' + job + '" class="button" onclick="jobClick('
-    html += "' + job + '";
-    html += ')">';
-    html += '<img src="assets/img/jobs/' + job + '.png" />';
-    html += '<span>' + job.toUpperCase() + '</span>';
-    html += '</div>';
-
-    jobsDiv.innerHTML += html;
-
-}
-
-function highlightCurrentDay(){
-  var currentDayId = document.getElementById('day' + currentDay);
-  var previousDayId = document.getElementById('day' + (currentDay - 1));
-  currentDayId.style.color = "#FF0000";
-  if ((currentDay - 1) !== 0){
-      previousDayId.removeAttribute("style");
-  }
-}
-
-function addIconToCalendar(type, icon){
-  var currentDayId = document.getElementById('day' + currentDay);
-  currentDayId.innerHTML = "<img src='assets/img/" + type + "/" + icon + ".png' />";
-}
-
-function scheduleAnimation(type, value){
-  document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/jobs/scenario/" + value + ".png')";
-  document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/jobs/sprites/" + value + "/good-animation-01.png')";
-  document.getElementById("jobSprite").className += "jobAnimation";
-  document.getElementById("jobScenarioContainer").className += "talk-box";
-
-  setTimeout(clearAnimation, 3000);
-}
-
-function clearAnimation(){
-  document.getElementById('jobScenario').removeAttribute("style");
-  document.getElementById('jobSprite').removeAttribute("style");
-  document.getElementById("jobSprite").className = document.getElementById("princess").className.replace( /(?:^|\s)jobAnimation(?!\S)/g , '' );
-  document.getElementById("jobScenarioContainer").className = document.getElementById("princess").className.replace( /(?:^|\s)talk-box(?!\S)/g , '' );
-}
+//Initial attributes based on Star Sign
 
 function initialAttibutesStats(val){
 
@@ -955,6 +569,410 @@ function initialAttibutesStats(val){
   }
 
   updateAttributes();
+}
+
+
+function saveGame(){
+  var save = {
+    name: name,
+    age: age,
+    currentMonth: currentMonth,
+    currentDay: currentDay,
+    year: year,
+    gold: gold
+  }
+
+  localStorage.setItem("save",JSON.stringify(save));
+}
+
+
+function jobClick(job){
+  gold += jobs[job].payment;
+
+  updateGold();
+
+  stress.value += jobs[job].stress;
+  document.getElementById('stressVal').innerHTML = stress.value;
+
+  switch (job) {
+    case "housework":
+        cooking.value += 0.5;
+        cleaning.value += 0.5;
+        temperament.value += 0.5;
+        sensitivity.value -= 2;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "housework");
+        break;
+    case "babysitter":
+        sensitivity.value += 1;
+        charisma.value -= 1;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "babysitter");
+        break;
+    case "inn":
+        cleaning.value += 0.5;
+        combatSkill.value -= 1;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "inn");
+        break;
+    case "farm":
+        constitution.value += 1;
+        strength.value += 1;
+        refinement.value -= 1;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "farm");
+        break;
+    case "church":
+        faith.value += 2;
+        morality.value += 1;
+        sin.value -= 2;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "church");
+        break;
+    case "restaurant":
+        cooking.value += 0.5;
+        combatSkill.value -= 0.5;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "restaurant");
+        break;
+    case "lumberjack":
+        strength.value += 2;
+        refinement.value -= 2;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "lumberjack");
+        break;
+    case "salon":
+        sensitivity.value += 1;
+        strength.value -= 1;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "salon");
+        break;
+    case "masonry":
+        constitution.value += 2;
+        charisma.value -= 2;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "masonry");
+        break;
+    case "hunter":
+        constitution.value += 1;
+        combatSkill.value += 0.5;
+        refinement.value -= 1;
+        sin.value += 0.5;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "hunter");
+        break;
+    case "graveyard":
+        sensitivity.value += 1;
+        magicalDefense.value += 0.5;
+        charisma.value -= 1;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "graveyard");
+        break;
+    case "tutor":
+        morality.value += 1;
+        charisma.value -= 1;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "tutor");
+        break;
+    case "bar":
+        cooking.value += 0.5;
+        conversation.value += 0.5;
+        intelligence.value -= 2;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "bar");
+        break;
+    case "sleazyBar":
+        charisma.value += 2;
+        faith.value -= 3;
+        morality.value -= 3;
+        temperament.value -= 0.5;
+        sin.value += 2;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "sleazy-bar");
+        break;
+    case "cabaret":
+        charisma.value =+ 3;
+        refinement.value -= 2;
+        intelligence.value -= 1;
+        temperament.value -= 0.5;
+        sin.value += 1;
+
+        scheduleAnimation("jobs", "housework");
+        addIconToCalendar("jobs", "cabaret");
+  }
+
+  currentDay += 1;
+  checkBirthday();
+  checkEndOfMonth();
+  highlightCurrentDay();
+  updateAttributes();
+
+
+  stressCheck(stress.value, constitution.value, morality.value, faith.value);
+
+};
+
+function lessonClick(topic){
+
+  if (gold > lessons[topic].price){
+    gold -= lessons[topic].price;
+
+    updateGold();
+
+    switch (topic) {
+      case "dance":
+          constitution.value += 1;
+          charisma.value += 0.5;
+          art.value += 0.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "dance");
+          break;
+      case "fencing":
+          combatSkill.value += 0.5;
+          combatAttack.value += 1;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "fencing");
+          break;
+      case "fighting":
+          combatSkill.value =+ 0.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "fighting");
+          break;
+      case "magic":
+          magicalSkill.value += 1;
+          magicalAttack.value += 0.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "magic");
+          break;
+      case "painting":
+          art.value += 1;
+          sensitivity.value += 0.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "painting");
+          break;
+      case "poetry":
+          intelligence.value += 0.5;
+          refinement.value += 0.5;
+          sensitivity.value += 1;
+          art.value += 0.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "poetry");
+          break;
+
+      case "protocol":
+          decorum.value += 1;
+          refinement.value += 1;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "protocol");
+          break;
+      case "science":
+          intelligence.value += 2.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "science");
+          break;
+      case "strategy":
+          intelligence.value += 1.5;
+          combatSkill.value += 0.5;
+          sensitivity.value -= 0.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "strategy");
+          break;
+      case "theology":
+          intelligence.value += 1;
+          faith.value += 1.5;
+          magicalDefense.value += 0.5;
+
+          scheduleAnimation("jobs", "housework");
+          addIconToCalendar("lessons", "theology");
+    }
+
+    currentDay += 1;
+    checkBirthday();
+    checkEndOfMonth();
+    highlightCurrentDay();
+    updateAttributes();
+    stressCheck(stress.value, constitution.value, morality.value, faith.value);
+  }
+  else {
+    console.log("No money!");
+  }
+
+};
+
+
+function createCalendar(){
+  var getCalendar = document.getElementById('calendar');
+
+  var currentDate = new Date(year, currentMonth, currentDay);
+
+  var firstDay = new Date(year, currentMonth, 1);
+  var startingDay = firstDay.getDay();
+  var monthLenght = calDaysInMonths[currentMonth];
+  var monthName = calMonthLabels[currentMonth];
+
+  var html = '<table class="calendar">';
+  html += '<thead><tr><th colspan="7">';
+  html += year + "&nbsp;" + monthName;
+  html += '</th></tr>';
+  html += '<tr>';
+
+  for (var i = 0; i <= 6; i++){
+    if (i === 0){
+      html += '<th><span style="color:red;">' + calDaysLabels[i] + '</span></th>';
+    }
+    else {
+      html += '<th>' + calDaysLabels[i] + '</th>';
+    }
+  }
+
+  html += '</tr></thead>';
+  html += '<tbody><tr>';
+
+  var day = 1;
+  for (var i = 0; i < 9; i++){
+    for (var j = 0; j <= 6; j++){
+
+      if (day <= monthLenght && (i > 0 || j >= startingDay )){
+        html += '<td id="day' + day + '">';
+        html += day;
+        day++;
+        html += '</td>';
+      } else {
+        html += '<td></td>';
+      }
+    }
+    if (day > monthLenght){
+      break;
+    } else {
+      html += '</tr><tr>';
+    }
+  }
+  html += '</tr></tbody></table>';
+
+  getCalendar.innerHTML = html;
+}
+
+function checkEndOfMonth(){
+    var currentDate = new Date(year, currentMonth, currentDay);
+    var monthLenght = calDaysInMonths[currentMonth];
+
+    if (currentDay > monthLenght){
+
+      currentDay = 1;
+      if (currentMonth === 11){
+        currentMonth = 0;
+        year += 1;
+      } else {
+        currentMonth += 1;
+      }
+      createCalendar();
+
+      if (bloodType === "A" || bloodType === "AB"){
+        stress.value += 2;
+        updateAttributes();
+      } else if (bloodType === "B"){
+        stress.value -= 2;
+        updateAttributes();
+      }
+    }
+
+}
+
+function checkBirthday(){
+  if (currentDay === birthdayDay && currentMonth === birthMonth - 1){
+    age += 1;
+    document.getElementById("age").innerHTML = age;
+
+    switch (age){
+      case 11:
+        addJob("lumberjack");
+        addJob("salon");
+        break;
+      case 12:
+        addJob("masonry");
+        addJob("hunter");
+        break;
+      case 13:
+        addJob("graveyard");
+        break;
+      case 14:
+        addJob("bar");
+        addJob("tutor");
+        break;
+      case 15:
+        addJob("sleazyBar");
+        break;
+      case 16:
+        addJob("cabaret");
+    }
+  }
+}
+
+function addJob(job){
+    var jobsDiv = document.getElementById('jobs');
+
+    var html = '<div id="' + job + '" class="button" onclick="jobClick('
+    html += "' + job + '";
+    html += ')">';
+    html += '<img src="assets/img/jobs/' + job + '.png" />';
+    html += '<span>' + job.charAt(0).toUpperCase() + job.slice(1) + '</span>';
+    html += '</div>';
+
+    jobsDiv.innerHTML += html;
+
+}
+
+function highlightCurrentDay(){
+  var currentDayId = document.getElementById('day' + currentDay);
+  var previousDayId = document.getElementById('day' + (currentDay - 1));
+  currentDayId.style.color = "#FF0000";
+  if ((currentDay - 1) !== 0){
+      previousDayId.removeAttribute("style");
+  }
+}
+
+function addIconToCalendar(type, icon){
+  var currentDayId = document.getElementById('day' + currentDay);
+  currentDayId.innerHTML = "<img src='assets/img/" + type + "/" + icon + ".png' />";
+}
+
+function scheduleAnimation(type, value){
+  document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/jobs/scenario/" + value + ".png')";
+  document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/jobs/sprites/" + value + "/good-animation-01.png')";
+  document.getElementById("jobSprite").className += "jobAnimation";
+  document.getElementById("jobScenarioContainer").className += "talk-box";
+
+  setTimeout(clearAnimation, 3000);
+}
+
+function clearAnimation(){
+  document.getElementById('jobScenario').removeAttribute("style");
+  document.getElementById('jobSprite').removeAttribute("style");
+  document.getElementById("jobSprite").className = document.getElementById("princess").className.replace( /(?:^|\s)jobAnimation(?!\S)/g , '' );
+  document.getElementById("jobScenarioContainer").className = document.getElementById("princess").className.replace( /(?:^|\s)talk-box(?!\S)/g , '' );
 }
 
 function updateAttributes(){
