@@ -1,20 +1,3 @@
-
-var starSigns =  [
-  ["Aries", 321, 419],
-  ["Taurus", 420,520],
-  ["Gemini", 521,621],
-  ["Cancer", 622,722],
-  ["Leo", 723,822],
-  ["Virgo", 823,922],
-  ["Libra", 923,1022],
-  ["Scorpio", 1023,1121],
-  ["Sagittarius", 1122,1221],
-  ["Capricorn", 1222,119],
-  ["Aquarius", 120,218],
-  ["Pisces", 219, 320]
-
-];
-
 var jobs = {
   "housework": {
     "payment": 0,
@@ -81,43 +64,53 @@ var jobs = {
 var lessons = {
   "dance": {
     "price": 50,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "fencing": {
     "price": 40,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "fighting": {
     "price": 30,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "magic": {
     "price": 60,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "painting": {
     "price": 40,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "poetry": {
     "price": 40,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "protocol": {
     "price": 40,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "science": {
     "price": 30,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "strategy": {
     "price": 50,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   },
   "theology": {
     "price": 40,
-    "level": "novice"
+    "level": "novice",
+    "classesTaken": 0
   }
 };
 
@@ -290,6 +283,7 @@ function jobClick(job){
   checkBirthday();
   checkEndOfMonth();
   highlightCurrentDay();
+  calculateReputations();
   updateAttributes();
 
 
@@ -299,8 +293,9 @@ function jobClick(job){
 
 function lessonClick(topic){
 
-  if (gold > lessons[topic].price){
+  if (gold >= lessons[topic].price){
     gold -= lessons[topic].price;
+    lessons[topic].classesTaken += 1;
 
     updateGold();
 
@@ -312,6 +307,7 @@ function lessonClick(topic){
 
           scheduleAnimation("lessons", "dance");
           addIconToCalendar("lessons", "dance");
+
           break;
       case "fencing":
           combatSkill.value += 0.5;
@@ -384,15 +380,48 @@ function lessonClick(topic){
     checkBirthday();
     checkEndOfMonth();
     highlightCurrentDay();
+    calculateReputations();
     updateAttributes();
     stressCheck(stress.value, constitution.value, morality.value, faith.value);
+    checkLessonLevel(topic);
   }
   else {
     console.log("No money!");
+    fadeIn(notifications);
+    notifications.innerHTML = "<p>You have no money!</p>";
+    setTimeout(clearNotification, 2000);
   }
 
 };
 
+function clearNotification(){
+  fadeOut(notifications);
+}
+
+function fadeOut(el){
+  el.style.opacity = 1;
+
+  (function fade() {
+    if ((el.style.opacity -= .1) < 0) {
+      el.style.display = "none";
+    } else {
+      requestAnimationFrame(fade);
+    }
+  })();
+}
+
+function fadeIn(el, display){
+  el.style.opacity = 0;
+  el.style.display = display || "block";
+
+  (function fade() {
+    var val = parseFloat(el.style.opacity);
+    if (!((val += .1) > 1)) {
+      el.style.opacity = val;
+      requestAnimationFrame(fade);
+    }
+  })();
+}
 
 function createCalendar(){
   var getCalendar = document.getElementById('calendar');
@@ -453,6 +482,8 @@ function checkEndOfMonth(){
     if (currentDay > monthLenght){
 
       currentDay = 1;
+      gold -= 30;
+      updateGold();
       if (currentMonth === 11){
         currentMonth = 0;
         year += 1;
@@ -532,19 +563,24 @@ function addIconToCalendar(type, icon){
 }
 
 function scheduleAnimation(type, value){
-  document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/jobs/scenario/" + value + ".png')";
-  document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/jobs/sprites/" + value + "/good-animation-01.png')";
+  var animationContainer = document.getElementById("jobScenarioContainer");
+
+  fadeIn(animationContainer, "inline-block");
+  document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/" + type + "/scenario/" + value + ".png')";
+  document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/" + type + "/sprites/" + value + "/good-animation-01.png')";
   document.getElementById("jobSprite").className += "jobAnimation";
-  document.getElementById("jobScenarioContainer").className += "talk-box";
 
   setTimeout(clearAnimation, 3000);
 }
 
 function clearAnimation(){
+  var animationContainer = document.getElementById("jobScenarioContainer");
+
+  fadeOut(animationContainer);
   document.getElementById('jobScenario').removeAttribute("style");
   document.getElementById('jobSprite').removeAttribute("style");
-  document.getElementById("jobSprite").className = document.getElementById("princess").className.replace( /(?:^|\s)jobAnimation(?!\S)/g , '' );
-  document.getElementById("jobScenarioContainer").className = document.getElementById("princess").className.replace( /(?:^|\s)talk-box(?!\S)/g , '' );
+  document.getElementById("jobSprite").className = document.getElementById("jobSprite").className.replace( /(?:^|\s)jobAnimation(?!\S)/g , '' );
+  //document.getElementById("jobScenarioContainer").className = document.getElementById("princess").className.replace( /(?:^|\s)talk-box(?!\S)/g , '' );
 }
 
 function updateAttributes(){
@@ -572,6 +608,11 @@ function updateAttributes(){
   document.getElementById('cookingVal').innerHTML = cooking.value;
   document.getElementById('cleaningVal').innerHTML = cleaning.value;
   document.getElementById('temperamentVal').innerHTML = temperament.value;
+
+  document.getElementById('fightingReputationVal').innerHTML = fightingReputation.value;
+  document.getElementById('magicReputationVal').innerHTML = magicReputation.value;
+  document.getElementById('socialReputationVal').innerHTML = socialReputation.value;
+  document.getElementById('houseworkReputationVal').innerHTML = houseworkReputation.value;
 }
 
 function isSick(){
@@ -602,6 +643,38 @@ function isDeliquent(){
   }
 
   return false;
+
+}
+
+function calculateReputations(){
+  fightingReputation.value = combatSkill.value + combatAttack.value + combatDefense.value;
+  magicReputation.value = magicalSkill.value + magicalAttack.value + magicalDefense.value;
+  socialReputation.value = decorum.value + conversation.value + art.value;
+  houseworkReputation.value = cooking.value + cleaning.value + temperament.value;
+}
+
+function checkLessonLevel(topic){
+    if(lessons[topic].level === "novice"){
+      if(lessons[topic].classesTaken >= 60){
+        lessons[topic].level = "adept";
+        console.log("now she is adept!");
+        lessons[topic].classesTaken = 0;
+      }
+    }
+    else if(lessons[topic].level === "adept"){
+      if(lessons[topic].classesTaken >= 50){
+        lessons[topic].level = "expert";
+        console.log("now she is expert!");
+        lessons[topic].classesTaken = 0;
+      }
+    }
+    else if (lessons[topic].level === "expert"){
+      if(lessons[topic].classesTaken >= 50){
+        lessons[topic].level = "master";
+        console.log("now she is master!");
+        lessons[topic].classesTaken = 0;
+      }
+    }
 
 }
 

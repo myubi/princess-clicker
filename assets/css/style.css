@@ -191,6 +191,10 @@ display: inline-block;
   display: inline-block;
 }
 
+#jobScenarioContainer {
+  display: none;
+}
+
 #jobScenario {
   background-repeat: no-repeat;
   display: inline-block;
@@ -203,6 +207,14 @@ display: inline-block;
   height: 80px;
   margin-top: 38px;
   animation: play .9s steps(4) infinite;
+}
+
+#notifications {
+  background-image: url('../img/background-pattern.png');
+  background-color: #a85050;
+  outline: 2px solid #7b7b7b;
+  border: 3px solid #fff;
+  display: none;
 }
 
 

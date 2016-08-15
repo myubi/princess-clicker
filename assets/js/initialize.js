@@ -16,7 +16,25 @@ var calDaysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 var currentDay;
 var currentMonth;
 
+var notifications = document.getElementById('notifications');
+
 var findGold = document.getElementsByClassName("gold");
+
+var starSigns =  [
+  ["Aries", 321, 419],
+  ["Taurus", 420,520],
+  ["Gemini", 521,621],
+  ["Cancer", 622,722],
+  ["Leo", 723,822],
+  ["Virgo", 823,922],
+  ["Libra", 923,1022],
+  ["Scorpio", 1023,1121],
+  ["Sagittarius", 1122,1221],
+  ["Capricorn", 1222,119],
+  ["Aquarius", 120,218],
+  ["Pisces", 219, 320]
+
+];
 
 //attributes
 
@@ -157,6 +175,11 @@ var conversation = document.getElementById('conversation');
 var cooking = document.getElementById('cooking');
 var cleaning = document.getElementById('cleaning');
 var temperament =  document.getElementById('temperament');
+
+var fightingReputation = document.getElementById('fightingReputation');
+var magicReputation = document.getElementById('magicReputation');
+var socialReputation = document.getElementById('socialReputation');
+var houseworkReputation =  document.getElementById('houseworkReputation');
 
 function defineStarSign(day){
   for (var i = 0; i < starSigns.length; i++){
@@ -522,6 +545,9 @@ function startGame(event){
    document.getElementById("starSign").innerHTML = starSign;
 
    initialAttibutesStats(starSign);
+
+   calculateReputations();
+   updateAttributes();
 
    createCalendar();
    highlightCurrentDay();
