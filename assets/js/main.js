@@ -114,7 +114,6 @@ var lessons = {
   }
 };
 
-//Initial Screen Story
 
 function warClick(num){
   gold += num;
@@ -299,81 +298,208 @@ function lessonClick(topic){
 
     updateGold();
 
+    scheduleAnimation("lessons", topic);
+    addIconToCalendar("lessons", topic);
+
     switch (topic) {
       case "dance":
           constitution.value += 1;
-          charisma.value += 0.5;
-          art.value += 0.5;
-
-          scheduleAnimation("lessons", "dance");
-          addIconToCalendar("lessons", "dance");
+          if (lessons[topic].level === "master"){
+            charisma.value += 1.5;
+            art.value += 2.5;
+          }
+          else if (lessons[topic].level === "expert"){
+            charisma.value += 1;
+            art.value += 1.5;
+          }
+          else if (lessons[topic].level === "adept"){
+            charisma.value += 0.5;
+            art.value += 1;
+          }
+          else {
+            charisma.value += 0.5;
+            art.value += 0.5;
+          }
 
           break;
       case "fencing":
           combatSkill.value += 0.5;
-          combatAttack.value += 1;
+          if (lessons[topic].level === "master"){
+            combatAttack.value += 2;
+          }
+          else if (lessons[topic].level === "expert"){
+            combatAttack.value += 2;
+          }
+          else if (lessons[topic].level === "adept"){
+            combatAttack.value += 1.5;
+          }
+          else {
+            combatAttack.value += 1;
+          }
 
-          scheduleAnimation("lessons", "fencing");
-          addIconToCalendar("lessons", "fencing");
           break;
       case "fighting":
-          combatSkill.value =+ 0.5;
 
-          scheduleAnimation("lessons", "fighting");
-          addIconToCalendar("lessons", "fighting");
+          if (lessons[topic].level === "master"){
+            combatSkill.value += 3;
+            combatDefense.value += 0.5;
+          }
+          else if (lessons[topic].level === "expert"){
+            combatSkill.value += 2;
+            combatDefense.value += 0.5;
+          }
+          else if (lessons[topic].level === "adept"){
+            combatSkill.value += 1.5;
+            combatDefense.value += 0.5;
+          }
+          else {
+            combatSkill.value += 1;
+          }
+
           break;
       case "magic":
-          magicalSkill.value += 1;
-          magicalAttack.value += 0.5;
 
-          scheduleAnimation("lessons", "magic");
-          addIconToCalendar("lessons", "magic");
+          if (lessons[topic].level === "master"){
+            magicalSkill.value += 3;
+            magicalAttack.value += 2.5;
+          }
+          else if (lessons[topic].level === "expert"){
+            magicalSkill.value += 2;
+            magicalAttack.value += 2;
+          }
+          else if (lessons[topic].level === "adept"){
+            magicalSkill.value += 1.5;
+            magicalAttack.value += 1.5;
+          }
+          else {
+            magicalSkill.value += 1;
+            magicalAttack.value += 1;
+          }
+
           break;
       case "painting":
-          art.value += 1;
           sensitivity.value += 0.5;
 
-          scheduleAnimation("lessons", "painting");
-          addIconToCalendar("lessons", "painting");
+          if (lessons[topic].level === "master"){
+            art.value += 3;
+          }
+          else if (lessons[topic].level === "expert"){
+            art.value += 2;
+          }
+          else if (lessons[topic].level === "adept"){
+            art.value += 1.5;
+          }
+          else {
+            art.value += 1;
+          }
+
           break;
       case "poetry":
-          intelligence.value += 0.5;
+
           refinement.value += 0.5;
-          sensitivity.value += 1;
           art.value += 0.5;
 
-          scheduleAnimation("lessons", "poetry");
-          addIconToCalendar("lessons", "poetry");
+          if (lessons[topic].level === "master"){
+            sensitivity.value += 3.5;
+            intelligence.value += 2;
+          }
+          else if (lessons[topic].level === "expert"){
+            sensitivity.value += 2;
+            intelligence.value += 1.5;
+          }
+          else if (lessons[topic].level === "adept"){
+            sensitivity.value += 1.5;
+            intelligence.value += 1;
+          }
+          else {
+            sensitivity.value += 1;
+            intelligence.value += 0.5;
+          }
+
           break;
 
       case "protocol":
-          decorum.value += 1;
-          refinement.value += 1;
 
-          scheduleAnimation("lessons", "protocol");
-          addIconToCalendar("lessons", "protocol");
+          if (lessons[topic].level === "master"){
+            decorum.value += 2.5;
+            refinement.value += 2.5;
+          }
+          else if (lessons[topic].level === "expert"){
+            decorum.value += 2;
+            refinement.value += 2;
+          }
+          else if (lessons[topic].level === "adept"){
+            decorum.value += 1.5;
+            refinement.value += 1.5;
+          }
+          else {
+            decorum.value += 1;
+            refinement.value += 1;
+          }
+
           break;
       case "science":
-          intelligence.value += 2.5;
 
-          scheduleAnimation("lessons", "science");
-          addIconToCalendar("lessons", "science");
+          if (lessons[topic].level === "master"){
+            intelligence.value += 8;
+            faith.value -= 2;
+            magicalDefense.value -= 0.5;
+          }
+          else if (lessons[topic].level === "expert"){
+            intelligence.value += 6;
+            faith.value -= 1;
+            magicalDefense.value -= 0.5;
+          }
+          else if (lessons[topic].level === "adept"){
+            intelligence.value += 4;
+            faith.value -= 0.5;
+            magicalDefense.value -= 0.5;
+          }
+          else {
+            intelligence.value += 2;
+          }
+
           break;
       case "strategy":
-          intelligence.value += 1.5;
+
           combatSkill.value += 0.5;
           sensitivity.value -= 0.5;
 
-          scheduleAnimation("lessons", "strategy");
-          addIconToCalendar("lessons", "strategy");
+          if (lessons[topic].level === "master"){
+            intelligence.value += 4.5;
+          }
+          else if (lessons[topic].level === "expert"){
+            intelligence.value += 3.5;
+          }
+          else if (lessons[topic].level === "adept"){
+            intelligence.value += 2.5;
+          }
+          else {
+            intelligence.value += 1.5;
+          }
+
           break;
       case "theology":
-          intelligence.value += 1;
-          faith.value += 1.5;
+
           magicalDefense.value += 0.5;
 
-          scheduleAnimation("lessons", "theology");
-          addIconToCalendar("lessons", "theology");
+          if (lessons[topic].level === "master"){
+            intelligence.value += 2;
+            faith.value += 3;
+          }
+          else if (lessons[topic].level === "expert"){
+            intelligence.value += 1.5;
+            faith.value += 2.5;
+          }
+          else if (lessons[topic].level === "adept"){
+            intelligence.value += 1;
+            faith.value += 2;
+          }
+          else {
+            intelligence.value += 1;
+            faith.value += 1.5;
+          }
+
     }
 
     currentDay += 1;
