@@ -689,23 +689,23 @@ function addIconToCalendar(type, icon){
 }
 
 function scheduleAnimation(type, value){
-  var animationContainer = document.getElementById("jobScenarioContainer");
+  var animationContainer = document.getElementById("scenarioContainer");
 
   fadeIn(animationContainer, "inline-block");
-  document.getElementById('jobScenario').style.backgroundImage = "url('assets/img/" + type + "/scenario/" + value + ".png')";
-  document.getElementById('jobSprite').style.backgroundImage = "url('assets/img/" + type + "/sprites/" + value + "/good-animation-01.png')";
-  document.getElementById("jobSprite").className += "jobAnimation";
+  document.getElementById('scenario').style.backgroundImage = "url('assets/img/" + type + "/scenario/" + value + ".png')";
+  document.getElementById('animSprite').style.backgroundImage = "url('assets/img/" + type + "/sprites/" + value + "/good-animation-01.png')";
+  document.getElementById("animSprite").className += "spriteAnimation-" + value;
 
   setTimeout(clearAnimation, 3000);
 }
 
 function clearAnimation(){
-  var animationContainer = document.getElementById("jobScenarioContainer");
+  var animationContainer = document.getElementById("scenarioContainer");
 
   fadeOut(animationContainer);
-  document.getElementById('jobScenario').removeAttribute("style");
-  document.getElementById('jobSprite').removeAttribute("style");
-  document.getElementById("jobSprite").className = document.getElementById("jobSprite").className.replace( /(?:^|\s)jobAnimation(?!\S)/g , '' );
+  document.getElementById('scenario').removeAttribute("style");
+  document.getElementById('animSprite').removeAttribute("style");
+  document.getElementById("animSprite").className = "";
   //document.getElementById("jobScenarioContainer").className = document.getElementById("princess").className.replace( /(?:^|\s)talk-box(?!\S)/g , '' );
 }
 

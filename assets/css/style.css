@@ -191,23 +191,18 @@ display: inline-block;
   display: inline-block;
 }
 
-#jobScenarioContainer {
+#scenarioContainer {
   display: none;
 }
 
-#jobScenario {
+#scenario {
   background-repeat: no-repeat;
   display: inline-block;
   width: 320px;
   height: 128px;
 }
 
-.jobAnimation {
-  width: 40px;
-  height: 80px;
-  margin-top: 38px;
-  animation: play .9s steps(4) infinite;
-}
+
 
 #notifications {
   background-image: url('../img/background-pattern.png');
@@ -218,13 +213,7 @@ display: inline-block;
 }
 
 
-@keyframes play {
-   from { background-position:    0px; }
-     to {
-       background-position: -163px;
-       transform: translateX(20px);
-      }
-}
+
 
 @media screen and (min-width:600px) {
    .container {

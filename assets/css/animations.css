@@ -1,0 +1,230 @@
+.spriteAnimation-housework {
+  min-width: 40px;
+  height: 80px;
+  animation: houseworkAnim .9s steps(4) infinite;
+  position: relative;
+  left: 50px;
+  top: 34px;
+  display: inline-block;
+}
+
+@keyframes houseworkAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
+
+.spriteAnimation-babysitter {
+  min-width: 40px;
+  max-height: 80px;
+  min-height: 57px;
+  animation: babysitterAnim .9s steps(4) infinite;
+  position: relative;
+  left: 50px;
+  top: 58px;
+  display: inline-block;
+}
+
+@keyframes babysitterAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
+
+.spriteAnimation-bar {
+  min-width: 40px;
+  height: 80px;
+  animation: barAnim .9s steps(4) infinite;
+  position: relative;
+  left: 50px;
+  top: 34px;
+  display: inline-block;
+}
+
+@keyframes barAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
+
+.spriteAnimation-dance {
+  min-width: 40px;
+  max-height: 80px;
+  min-height: 61px;
+  animation: danceAnim .9s steps(4) infinite;
+  position: relative;
+  left: 130px;
+  top: 54px;
+  display: inline-block;
+}
+
+@keyframes danceAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+      }
+}
+
+.spriteAnimation-fencing {
+  min-width: 40px;
+  height: 73px;
+  animation: fencingAnim .9s steps(4) infinite;
+  position: relative;
+  left: 130px;
+  top: 40px;
+  display: inline-block;
+}
+
+@keyframes fencingAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+      }
+}
+
+.spriteAnimation-fighting {
+  min-width: 40px;
+  height: 52px;
+  animation: fightingAnim .9s steps(3) infinite;
+  position: relative;
+  left: 50px;
+  top: 63px;
+  display: inline-block;
+}
+
+@keyframes fightingAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -118px;
+      }
+}
+
+.spriteAnimation-magic {
+  min-width: 40px;
+  height: 80px;
+  animation: magicAnim .9s steps(8) infinite;
+  position: relative;
+  left: 90px;
+  top: 34px;
+  display: inline-block;
+}
+
+@keyframes magicAnim {
+   from { background-position:    0px; }
+     to {
+        background-position: -328px;
+      }
+}
+
+.spriteAnimation-painting {
+  min-width: 40px;
+  height: 50px;
+  animation: paintingAnim .9s steps(2) infinite;
+  position: relative;
+  left: -130px;
+  top: 64px;
+  display: inline-block;
+}
+
+@keyframes paintingAnim {
+   from { background-position:    0px; }
+     to {
+        background-position: -78px;
+      }
+}
+
+.spriteAnimation-poetry {
+  min-width: 40px;
+  height: 60px;
+  animation: poetryAnim .9s steps(4) infinite;
+  position: relative;
+  left: 50px;
+  top: 54px;
+  display: inline-block;
+}
+
+@keyframes poetryAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
+
+.spriteAnimation-protocol {
+  min-width: 40px;
+  height: 80px;
+  animation: protocolAnim .9s steps(2) infinite;
+  position: relative;
+  left: 50px;
+  top: 34px;
+  display: inline-block;
+}
+
+@keyframes protocolAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
+
+.spriteAnimation-strategy {
+  min-width: 40px;
+  height: 80px;
+  animation: strategyAnim .9s steps(2) infinite;
+  position: relative;
+  left: 50px;
+  top: 34px;
+  display: inline-block;
+}
+
+@keyframes strategyAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
+
+.spriteAnimation-science {
+  min-width: 40px;
+  height: 80px;
+  animation: scienceAnim .9s steps(2) infinite;
+  position: relative;
+  left: 50px;
+  top: 34px;
+  display: inline-block;
+}
+
+@keyframes scienceAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
+
+.spriteAnimation-theology {
+  min-width: 40px;
+  height: 80px;
+  animation: theologyAnim .9s steps(2) infinite;
+  position: relative;
+  left: 50px;
+  top: 34px;
+  display: inline-block;
+}
+
+@keyframes theologyAnim {
+   from { background-position:    0px; }
+     to {
+       background-position: -163px;
+       transform: translateX(20px);
+      }
+}
