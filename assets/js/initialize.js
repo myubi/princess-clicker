@@ -89,14 +89,28 @@ var initLessons = {
   "theology": 40
 };
 
-var attributesDiv = document.getElementById('attributes');
+//var attributesDiv = document.getElementById('attributes');
+var attrSet1Div = document.getElementById('attrSet1');
+var attrSet2Div = document.getElementById('attrSet2');
+var attrSet3Div = document.getElementById('attrSet3');
+var count = 0;
 
 for (var attribute in attributes){
-  var attributeDiv = document.createElement('div');
-  attributesDiv.appendChild(attributeDiv);
+
+    var attributeDiv = document.createElement('div');
+
+    if (count < 10){
+        attrSet1Div.appendChild(attributeDiv);
+    } else if(count < 18){
+        attrSet2Div.appendChild(attributeDiv);
+    } else {
+        attrSet3Div.appendChild(attributeDiv);
+    }
+
   var spanTitle = document.createElement('span');
   spanTitle.className = 'attrName';
-  spanTitle.innerHTML = attribute.charAt(0).toUpperCase() + attribute.slice(1);;
+  uppercaseTittle = attribute.replace(/([A-Z])/g, ' $1').trim();
+  spanTitle.innerHTML = uppercaseTittle.charAt(0).toUpperCase() + uppercaseTittle.slice(1);;
   attributeDiv.appendChild(spanTitle);
   var spanNumber = document.createElement('span');
   spanNumber.className = 'attrValue';
@@ -109,7 +123,11 @@ for (var attribute in attributes){
   meter.min = 0;
   meter.max = 1000;
   attributeDiv.appendChild(meter);
+  count += 1;
+
 }
+
+
 
 var jobsDiv = document.getElementById('jobs');
 

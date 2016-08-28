@@ -783,6 +783,7 @@ function checkLessonLevel(topic){
     if(lessons[topic].level === "novice"){
       if(lessons[topic].classesTaken >= 60){
         lessons[topic].level = "adept";
+        lessonPriceUpdate(topic,"adept");
         console.log("now she is adept!");
         lessons[topic].classesTaken = 0;
       }
@@ -790,6 +791,7 @@ function checkLessonLevel(topic){
     else if(lessons[topic].level === "adept"){
       if(lessons[topic].classesTaken >= 50){
         lessons[topic].level = "expert";
+        lessonPriceUpdate(topic,"expert");
         console.log("now she is expert!");
         lessons[topic].classesTaken = 0;
       }
@@ -797,11 +799,122 @@ function checkLessonLevel(topic){
     else if (lessons[topic].level === "expert"){
       if(lessons[topic].classesTaken >= 50){
         lessons[topic].level = "master";
+        lessonPriceUpdate(topic,"master");
         console.log("now she is master!");
         lessons[topic].classesTaken = 0;
       }
     }
 
+}
+
+function lessonPriceUpdate(topic,level){
+  if(level = "adept"){
+    switch (topic) {
+      case "dance":
+        lessons[topic].price = 70;
+        break;
+      case "fencing":
+        lessons[topic].price = 70;
+        break;
+      case "fighting":
+        lessons[topic].price = 40;
+        break;
+      case "magic":
+        lessons[topic].price = 70;
+        break;
+      case "painting":
+        lessons[topic].price = 50;
+        break;
+      case "poetry":
+        lessons[topic].price = 60;
+        break;
+      case "protocol":
+        lessons[topic].price = 50;
+        break;
+      case "science":
+        lessons[topic].price = 40;
+        break;
+      case "strategy":
+        lessons[topic].price = 70;
+        break;
+      case "theology":
+        lessons[topic].price = 60;
+        break;
+    }
+  }
+
+  else if (level = "expert"){
+    switch (topic) {
+      case "dance":
+        lessons[topic].price = 90;
+        break;
+      case "fencing":
+        lessons[topic].price = 130;
+        break;
+      case "fighting":
+        lessons[topic].price = 50;
+        break;
+      case "magic":
+        lessons[topic].price = 80;
+        break;
+      case "painting":
+        lessons[topic].price = 60;
+        break;
+      case "poetry":
+        lessons[topic].price = 80;
+        break;
+      case "protocol":
+        lessons[topic].price = 60;
+        break;
+      case "science":
+        lessons[topic].price = 50;
+        break;
+      case "strategy":
+        lessons[topic].price = 90;
+        break;
+      case "theology":
+        lessons[topic].price = 80;
+        break;
+
+    }
+  }
+
+  else if (level = "master"){
+    switch (topic) {
+      case "dance":
+        lessons[topic].price = 110;
+        break;
+      case "fencing":
+        lessons[topic].price = 190;
+        break;
+      case "fighting":
+        lessons[topic].price = 60;
+        break;
+      case "magic":
+        lessons[topic].price = 90;
+        break;
+      case "painting":
+        lessons[topic].price = 80;
+        break;
+      case "poetry":
+        lessons[topic].price = 100;
+        break;
+      case "protocol":
+        lessons[topic].price = 70;
+        break;
+      case "science":
+        lessons[topic].price = 60;
+        break;
+      case "strategy":
+        lessons[topic].price = 110;
+        break;
+      case "theology":
+        lessons[topic].price = 100;
+        break;
+
+    }
+  }
+document.getElementById(topic + "Cost").innerHTML = lessons[topic].price + " G";
 }
 
 function stressCheck(){

@@ -11,6 +11,15 @@
 
     <div id="attributes" class="hidden">
 
+      <div id="attrSet1" class="attrBox">
+      </div>
+
+      <div id="attrSet2" class="attrBox">
+      </div>
+
+      <div id="attrSet3" class="attrBox">
+      </div>
+
       </div>
 
     </div>
@@ -19,7 +28,7 @@
 
       <div id="beggining">
         <div class="talk-box">
-          <p>You find yourself stuck into a figth with the devil. Attacking him is dropping coins in the floor.</p>
+          <p>You find yourself stuck into a fight with the devil. Attacking him is dropping coins in the floor.</p>
         </div>
 
         <img class="hand-cursor" src="assets/img/war-beggining.png" onclick="warClick(50)" />
@@ -76,11 +85,22 @@
           <p>
             <a href="#" onclick="saveGame()">Save Game</a>
           </p>
+
+    </div>
+
+      <div id="gameOver" class="hidden">
+        <div class="talk-box">
+          <p>You have been a terrible parent. Your daugther has passed away. How could you?</p>
+        </div>
       </div>
 
-      <div id="gameOver" class="hidden"></div>
+      <div id="endGame" class="hidden">
+        <div class="mugshot"><img src="assets/img/goddess.png" /></div>
 
-      <div id="endGame" class="hidden"></div>
+        <div class="talk-box talk-mugshot">
+          <p>Your decisions crafted the path for your daugther future.</p>
+        </div>
+      </div>
 
     </div>
 

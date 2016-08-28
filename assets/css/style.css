@@ -85,12 +85,13 @@ width: 30px;
 text-align: center;
 }
 
-#attributes {
+.attrBox {
   padding: 10px;
   outline: 2px solid #7b7b7b;
   border: 3px solid #fff;
   background-color: #a85050;
   background-image: url('../img/background-pattern.png');
+  margin-bottom: 30px;
 }
 
 #attributes>div{
@@ -117,7 +118,7 @@ meter::-webkit-meter-optimum-value {
 }
 
 .attrName {
-  width: 130px;
+  width: 200px;
 display: inline-block;
 }
 
@@ -163,7 +164,11 @@ display: inline-block;
   flex-direction: column-reverse;
   background-repeat: no-repeat;
   background-position: center;
+  outline: 2px solid #7b7b7b;
+  border: 3px solid #fff;
   height: 400px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .calendar tr>td{
@@ -201,8 +206,6 @@ display: inline-block;
   width: 320px;
   height: 128px;
 }
-
-
 
 #notifications {
   background-image: url('../img/background-pattern.png');
